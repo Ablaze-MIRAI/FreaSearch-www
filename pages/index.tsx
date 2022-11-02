@@ -1,6 +1,7 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Logo from 'components/Logo';
+import Input from 'components/Input/Input';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {
@@ -19,6 +20,7 @@ const Home: NextPage = () => {
         <div className={styles.iconWrapper}>
           <Logo />
         </div>
+        <Input rightItem />
       </main>
     </div>
   );

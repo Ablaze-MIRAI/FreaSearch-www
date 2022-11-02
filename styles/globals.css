@@ -1,3 +1,8 @@
+:root {
+  --f-primary: #c41b1b;
+  --f-primary-bg: #f3f3f3;
+}
+
 html,
 body {
   padding: 0;
