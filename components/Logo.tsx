@@ -1,6 +1,6 @@
 const Logo = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" height="140" width="auto" viewBox="0 0 677.77 140">
+    <svg xmlns="http://www.w3.org/2000/svg" height="120" width="auto" viewBox="0 0 677.77 140">
       <defs>
         <clipPath id="clippath">
           <rect width="141" height="140" fill="none" />
