@@ -1,17 +1,10 @@
-:root {
-  --f-primary: #c41b1b;
-  --f-primary-bg: #f3f3f3;
-}
-
-html,
-body {
-  padding: 0;
-  margin: 0;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 a {
-  color: inherit;
-  text-decoration: none;
+  @apply text-inherit;
+  @apply no-underline;
 }
 
 * {

@@ -1,12 +1,11 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import Logo from 'components/Logo';
-import Input from 'components/Input/Input';
-import styles from '../styles/Home.module.css';
+import Input from 'components/Input';
 
 const Home: NextPage = () => {
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Frea Search</title>
         <meta
@@ -16,8 +15,8 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <div className={styles.iconWrapper}>
+      <main>
+        <div>
           <Logo />
         </div>
         <Input rightItem />
