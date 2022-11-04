@@ -12,7 +12,7 @@ const Input: React.FC<Props> = ({ leftItem: leftItem, className, ...props }) => 
       <input
         type="text"
         className={classNames(
-          'border-none outline-none bg-gray-100 h-12 px-5 text-lg rounded-full w-full',
+          'border-none outline-none bg-gray-100 h-12 px-5 rounded-full w-full',
           leftItem && 'pl-14'
         )}
         {...props}
