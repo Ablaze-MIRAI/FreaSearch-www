@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import Link from 'next/link';
 
 type props = {
   isLink?: boolean;
@@ -8,9 +9,19 @@ type props = {
   className?: string;
 };
 
+const ButtonElement: React.FC<props> = ({ link, children, ...props }) => {
+  return link === undefined ? (
+    <button {...props}>{children}</button>
+  ) : (
+    <Link href={link} {...props}>
+      {children}
+    </Link>
+  );
+};
+
 const Button: React.FC<props> = ({ children, className, ...props }) => {
   return (
-    <button
+    <ButtonElement
       className={classNames(
         'flex items-center justify-center border border-[#C41B1B] hover:bg-gray-100/70 h-12 px-4 rounded-md transition',
         className
@@ -18,7 +29,7 @@ const Button: React.FC<props> = ({ children, className, ...props }) => {
       {...props}
     >
       {children}
-    </button>
+    </ButtonElement>
   );
 };
 
