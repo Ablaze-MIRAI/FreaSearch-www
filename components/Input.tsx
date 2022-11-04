@@ -8,10 +8,10 @@ type Props = JSX.IntrinsicElements['input'] & {
 
 const Input: React.FC<Props> = ({ rightItem, className, ...props }) => {
   return (
-    <div className={classNames('max-w-4xl mx-auto relative', className)}>
+    <div className={classNames('relative', className)}>
       <input
         type="text"
-        className="border-none outline-none bg-gray-100 h-16 px-5 text-lg rounded-lg w-full"
+        className="border-none outline-none bg-gray-100 h-12 px-5 text-lg rounded-full w-full"
         {...props}
       />
       {rightItem && (
