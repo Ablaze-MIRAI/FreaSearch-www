@@ -18,7 +18,7 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="max-w-3xl mx-auto">
+      <main className="max-w-2xl mx-auto">
         <div className="absolute top-5 right-7 flex">
           <Button>ダウンロード</Button>
           <IconButton className="ml-2">
