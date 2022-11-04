@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         </div>
         <Input
           placeholder="検索する..."
-          rightItem={<IconSearch />}
+          leftItem={<IconSearch />}
           className="mt-12 outline-none transition"
         />
       </main>
