@@ -2,11 +2,12 @@ import classNames from 'classnames';
 import React, { ReactNode } from 'react';
 
 type Props = JSX.IntrinsicElements['input'] & {
-  leftItem: ReactNode;
+  leftItem?: ReactNode;
+  rightItem?: ReactNode;
   className?: string;
 };
 
-const Input: React.FC<Props> = ({ leftItem: leftItem, className, ...props }) => {
+const Input: React.FC<Props> = ({ leftItem, rightItem, className, ...props }) => {
   return (
     <div className={classNames('relative', className)}>
       <input
@@ -20,6 +21,11 @@ const Input: React.FC<Props> = ({ leftItem: leftItem, className, ...props }) => 
       {leftItem && (
         <div className="absolute left-5 text-gray-400 top-0 h-full flex items-center">
           {leftItem}
+        </div>
+      )}
+      {rightItem && (
+        <div className="absolute right-5 text-gray-400 top-0 h-full flex items-center">
+          {rightItem}
         </div>
       )}
     </div>
