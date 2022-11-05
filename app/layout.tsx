@@ -1,3 +1,4 @@
+import '../styles/globals.css';
 import classNames from 'classnames';
 import { Inter, Noto_Sans_JP } from '@next/font/google';
 
