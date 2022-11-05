@@ -21,7 +21,7 @@ const Home: NextPage = () => {
       <main className="max-w-2xl mx-auto">
         <div className="absolute top-5 right-7 flex">
           <Button link="#">ダウンロード</Button>
-          <IconButton link="#" className="ml-5">
+          <IconButton link="/settings" className="ml-5">
             <IconSettings />
           </IconButton>
         </div>
