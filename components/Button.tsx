@@ -23,7 +23,7 @@ const Button: React.FC<props> = ({ children, className, ...props }) => {
   return (
     <ButtonElement
       className={classNames(
-        'flex items-center justify-center border border-[#C41B1B] hover:bg-gray-100/70 h-12 px-4 rounded-md transition',
+        'flex items-center justify-center border border-[#C41B1B] hover:bg-gray-100/70 h-11 px-6 rounded-md transition',
         className
       )}
       {...props}
