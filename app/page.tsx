@@ -16,7 +16,7 @@ const Home: NextPage = () => {
             <IconSettings />
           </IconButton>
         </div>
-        <div className="mt-48">
+        <div className="mt-48 flex justify-center">
           <Logo />
         </div>
         <Input
