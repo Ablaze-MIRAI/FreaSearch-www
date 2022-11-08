@@ -5,7 +5,7 @@ export const settingPages = [
   },
   {
     name: 'Design',
-    pageId: 'Design',
+    pageId: 'design',
   },
   {
     name: 'Privacy',
