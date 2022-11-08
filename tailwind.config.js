@@ -9,6 +9,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        brand: '#C41B1B',
+      },
       fontFamily: {
         sans: ['var(--font-inter)', 'var(--font-noto-sans-jp)', ...fontFamily.sans],
       },
