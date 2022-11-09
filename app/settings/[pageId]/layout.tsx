@@ -1,7 +1,7 @@
 import 'styles/globals.css';
 import { LogoIcon } from 'components/Logo';
 import { TabList, TabItem } from 'components/TabList';
-import { settingPages } from './settings.utils';
+import { settings } from './settings.utils';
 import Link from 'next/link';
 
 export default function SettingsLayout({
@@ -19,7 +19,7 @@ export default function SettingsLayout({
         </Link>
         <h1 className="font-semibold text-lg">Settings</h1>
         <TabList>
-          {settingPages.map((page) => (
+          {settings.map((page) => (
             <TabItem
               key={page.pageId}
               href={`/settings/${page.pageId}`}
