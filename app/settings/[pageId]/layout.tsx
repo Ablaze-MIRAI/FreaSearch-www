@@ -1,6 +1,4 @@
 import 'styles/globals.css';
-import classNames from 'classnames';
-import { Inter, Noto_Sans_JP } from '@next/font/google';
 import { LogoIcon } from 'components/Logo';
 import { TabList, TabItem } from 'components/TabList';
 import { settingPages } from './settings.utils';
