@@ -13,7 +13,7 @@ const TabItem: React.FC<props> = ({ href, isSelected, children }) => {
     <Link href={href}>
       <div
         className={classNames('py-2 px-3', {
-          'shadow-[0_2px_0_0_#aaa] shadow-brand': isSelected,
+          'shadow-[0_2px_0_0] shadow-brand': isSelected,
         })}
       >
         {children}
