@@ -14,8 +14,8 @@ export default function SettingsLayout({
   params: { pageId: string };
 }) {
   return (
-    <>
-      <div className="flex items-center max-w-4xl space-x-10 mx-auto h-16">
+    <div className="max-w-4xl mx-auto">
+      <div className="flex items-center space-x-10 h-16">
         <Link href="/">
           <LogoIcon className="shrink-0 grow-0" />
         </Link>
@@ -32,7 +32,7 @@ export default function SettingsLayout({
           ))}
         </TabList>
       </div>
-      {children}
-    </>
+      <div className="px-20 mt-5">{children}</div>
+    </div>
   );
 }
