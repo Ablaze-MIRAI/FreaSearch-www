@@ -1,15 +1,25 @@
 import { settings } from './settings.utils';
-import type { NextPage } from 'next';
-import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from 'react';
+import { notFound } from 'next/navigation';
 
-const SettingsPage: NextPage = () => {
+function SettingsPage({ params }: { params: { pageId: string } }) {
+  const currentSettings = settings.find((page) => page.pageId === params.pageId)?.settings;
+
+  if (!currentSettings) {
+    notFound();
+  }
+
   return (
     <div>
-      {settings.map((setting) => (
-        <div key={setting.pageId}>{setting.name}</div>
+      {currentSettings.map((setting) => (
+        // TODO: i18n
+        <div className="flex">
+          <div key={setting.settingId} className="w-48">
+            {setting.settingId}
+          </div>
+        </div>
       ))}
     </div>
   );
-};
+}
 
 export default SettingsPage;
