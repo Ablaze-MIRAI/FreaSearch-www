@@ -1,5 +1,6 @@
 import { settings } from './settings.utils';
 import { notFound } from 'next/navigation';
+import { Select, SelectOption } from 'components/Select';
 
 function SettingsPage({ params }: { params: { pageId: string } }) {
   const currentSettings = settings.find((page) => page.pageId === params.pageId)?.settings;
@@ -15,6 +16,14 @@ function SettingsPage({ params }: { params: { pageId: string } }) {
         <div className="flex">
           <div key={setting.settingId} className="w-48">
             {setting.settingId}
+          </div>
+          <div className="flex-grow">
+            {setting.type == 'select' ? (
+              <Select>
+                <SelectOption key="ja">日本語</SelectOption>
+                <SelectOption key="en">英語</SelectOption>
+              </Select>
+            ) : null}
           </div>
         </div>
       ))}
