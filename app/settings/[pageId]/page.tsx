@@ -20,8 +20,8 @@ function SettingsPage({ params }: { params: { pageId: string } }) {
           <div className="flex-grow">
             {setting.type == 'select' ? (
               <Select>
-                <SelectOption key="ja">日本語</SelectOption>
-                <SelectOption key="en">英語</SelectOption>
+                <SelectOption value="ja">日本語</SelectOption>
+                <SelectOption value="en">英語</SelectOption>
               </Select>
             ) : null}
           </div>
