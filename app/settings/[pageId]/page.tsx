@@ -1,6 +1,6 @@
 import { settings } from './settings.utils';
 import { notFound } from 'next/navigation';
-import { Select, SelectOption } from 'components/Select';
+import { Select, SelectItem } from 'components/Select';
 
 function SettingsPage({ params }: { params: { pageId: string } }) {
   const currentSettings = settings.find((page) => page.pageId === params.pageId)?.settings;
@@ -20,8 +20,8 @@ function SettingsPage({ params }: { params: { pageId: string } }) {
           <div className="flex-grow">
             {setting.type == 'select' ? (
               <Select>
-                <SelectOption value="ja">日本語</SelectOption>
-                <SelectOption value="en">英語</SelectOption>
+                <SelectItem value="ja">日本語</SelectItem>
+                <SelectItem value="en">英語</SelectItem>
               </Select>
             ) : null}
           </div>

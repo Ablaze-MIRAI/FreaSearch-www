@@ -8,7 +8,7 @@ export default ({ value, children }: { value: string; children: ReactNode }) => 
   return (
     <Select.Item value={value}>
       <Select.ItemText>{children}</Select.ItemText>
-      <Select.ItemIndicator className="SelectItemIndicator">
+      <Select.ItemIndicator className="absolute">
         <IconCheck size={16} />
       </Select.ItemIndicator>
     </Select.Item>

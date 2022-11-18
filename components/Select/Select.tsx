@@ -12,7 +12,11 @@ export default ({ children }: { children: ReactNode }) => {
         <span>{value}</span>
         <IconChevronDown size={16} />
       </Select.Trigger>
-      <Select.Content>{children}</Select.Content>
+      <Select.Portal>
+        <Select.Content>
+          <Select.Viewport>{children}</Select.Viewport>
+        </Select.Content>
+      </Select.Portal>
     </Select.Root>
   );
 };
