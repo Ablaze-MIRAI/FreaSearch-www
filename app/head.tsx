@@ -4,7 +4,7 @@ export default function Head() {
       <title>Frea Search</title>
       <meta
         name="description"
-        content="Frea Search — a clean, privacy-respecting metasearch engine"
+        content="Frea Search — A clean, privacy-respecting metasearch engine"
       />
       <link rel="icon" href="/favicon.ico" />
     </>
