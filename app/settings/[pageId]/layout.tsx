@@ -17,7 +17,7 @@ export default function SettingsLayout({
         <Link href="/">
           <LogoIcon className="shrink-0 grow-0" />
         </Link>
-        <h1 className="font-semibold text-lg">Settings</h1>
+        <h1 className="font-bold text-lg">Settings</h1>
         <TabList>
           {settings.map((page) => (
             <TabItem
