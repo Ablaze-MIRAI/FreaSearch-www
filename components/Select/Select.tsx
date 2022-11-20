@@ -13,7 +13,7 @@ export default ({ children }: { children: ReactNode }) => {
         <IconChevronDown size={16} />
       </Select.Trigger>
       <Select.Portal>
-        <Select.Content className="bg-white drop-shadow-md py-2 rounded-md">
+        <Select.Content className="bg-white drop-shadow-md p-2 rounded-md">
           <Select.Viewport>{children}</Select.Viewport>
         </Select.Content>
       </Select.Portal>

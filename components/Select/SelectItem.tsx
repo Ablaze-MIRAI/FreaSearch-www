@@ -8,12 +8,9 @@ export default ({ value, children }: { value: string; children: ReactNode }) => 
   return (
     <Select.Item
       value={value}
-      className="outline-none text-sm pl-6 pr-3 py-1.5 data-[highlighted]:bg-gray-100 cursor-pointer"
+      className="outline-none text-sm p-6 py-1 text-blue-500 data-[highlighted]:bg-blue-500 data-[highlighted]:text-white rounded-sm cursor-pointer"
     >
       <Select.ItemText>{children}</Select.ItemText>
-      <Select.ItemIndicator className="absolute left-1 align-middle">
-        <IconCheck size={16} />
-      </Select.ItemIndicator>
     </Select.Item>
   );
 };
