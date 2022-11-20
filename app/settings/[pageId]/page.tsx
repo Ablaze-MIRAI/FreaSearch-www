@@ -13,7 +13,7 @@ function SettingsPage({ params }: { params: { pageId: string } }) {
     <div>
       {currentSettings.map((setting) => (
         // TODO: i18n
-        <div className="flex">
+        <div className="flex items-center">
           <div key={setting.settingId} className="w-48">
             {setting.settingId}
           </div>
