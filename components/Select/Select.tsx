@@ -8,7 +8,7 @@ export default ({ children }: { children: ReactNode }) => {
   const [value, setValue] = useState('en');
   return (
     <Select.Root value={value} onValueChange={setValue}>
-      <Select.Trigger className="flex justify-between w-32 items-center border rounded-md text-left text-sm px-3 py-2">
+      <Select.Trigger className="flex justify-between w-32 items-center rounded-md text-left text-sm px-3 py-2 outline-none focus:ring">
         <Select.Value />
         <IconChevronDown size={16} />
       </Select.Trigger>
