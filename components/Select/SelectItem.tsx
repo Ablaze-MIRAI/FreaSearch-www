@@ -8,7 +8,7 @@ export default ({ value, children }: { value: string; children: ReactNode }) => 
   return (
     <Select.Item
       value={value}
-      className="outline-none text-sm p-6 py-1 text-blue-700 data-[highlighted]:bg-blue-500 data-[highlighted]:text-white rounded-sm cursor-pointer"
+      className="outline-none text-sm p-6 py-1 data-[highlighted]:bg-gray-100 rounded-sm cursor-pointer"
     >
       <Select.ItemText>{children}</Select.ItemText>
     </Select.Item>
