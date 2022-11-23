@@ -7,7 +7,7 @@ type prop = {
 
 const SettingItem: React.FC<prop> = ({ children, label }) => {
   return (
-    <div className="flex items-center">
+    <div className="flex h-12 items-center">
       <div className="w-48">{label}</div>
       <div className="flex-grow">{children}</div>
     </div>
