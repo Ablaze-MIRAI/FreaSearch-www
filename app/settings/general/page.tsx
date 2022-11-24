@@ -1,8 +1,11 @@
 import { Select, SelectItem } from 'components/Select';
 import SettingItem from 'components/SettingItem';
 import Switch from 'components/Switch';
+import useSettings from 'hooks/useSettings';
 
 function SettingsPage() {
+  const settings = useSettings();
+
   return (
     <div>
       <SettingItem label="言語">
