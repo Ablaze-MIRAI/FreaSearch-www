@@ -11,6 +11,7 @@ type Props = {
 const Switch: FC<Props> = ({ value }) => {
   return (
     <RadixSwitch.Root
+      checked={value}
       className={classNames(
         'group w-12 block h-6 p-0.5 rounded-full border-2 bg-gray-400 border-gray-300 transition',
         'data-[state=checked]:bg-green-400 data-[state=checked]:border-green-300'
