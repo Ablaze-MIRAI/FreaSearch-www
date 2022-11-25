@@ -1,3 +1,5 @@
+'use client';
+
 import { Select, SelectItem } from 'components/Select';
 import SettingItem from 'components/SettingItem';
 import Switch from 'components/Switch';
@@ -5,6 +7,7 @@ import { useSettings } from 'hooks';
 
 function SettingsPage() {
   const settings = useSettings();
+  console.log(settings);
 
   return (
     <div>

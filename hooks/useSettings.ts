@@ -16,8 +16,8 @@ class Settings implements ISettings {
   }
 }
 
-export const useSettings = () => {
+export function useSettings() {
   const [settings] = useState<Settings>(new Settings());
 
   return settings;
-};
+}
