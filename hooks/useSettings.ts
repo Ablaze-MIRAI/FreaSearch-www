@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 interface ISettings {
@@ -14,8 +16,8 @@ class Settings implements ISettings {
   }
 }
 
-export function useSettings() {
+export const useSettings = () => {
   const [settings] = useState<Settings>(new Settings());
 
   return settings;
-}
+};
