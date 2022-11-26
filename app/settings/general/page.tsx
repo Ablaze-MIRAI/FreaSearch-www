@@ -7,12 +7,14 @@ import { useSettings } from 'hooks';
 
 function SettingsPage() {
   const settings = useSettings();
-  console.log(settings);
 
   return (
     <div>
       <SettingItem label="言語">
-        <Select value={settings.language} onValueChange={settings.setLanguage}>
+        <Select
+          value={settings.language}
+          onValueChange={(language: 'ja' | 'en') => settings.setLanguage(language)}
+        >
           <SelectItem value="ja">日本語</SelectItem>
           <SelectItem value="en">英語</SelectItem>
         </Select>
