@@ -1,3 +1,3 @@
-import { useSettings } from './useSettings';
+import { useSettings, SettingsProvider } from './useSettings';
 
-export { useSettings };
+export { useSettings, SettingsProvider };
