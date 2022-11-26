@@ -12,7 +12,7 @@ function SettingsPage() {
   return (
     <div>
       <SettingItem label="言語">
-        <Select>
+        <Select value={settings.language} onValueChange={settings.setLanguage}>
           <SelectItem value="ja">日本語</SelectItem>
           <SelectItem value="en">英語</SelectItem>
         </Select>
