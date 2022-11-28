@@ -1,5 +1,6 @@
 'use client';
 
+import Button from 'components/Button';
 import { Select, SelectItem } from 'components/Select';
 import SettingItem from 'components/SettingItem';
 import Switch from 'components/Switch';
@@ -22,6 +23,9 @@ function SettingsPage() {
       <SettingItem label="検索の最適化">
         <Switch />
       </SettingItem>
+      <div className="flex flex-row-reverse">
+        <Button>保存</Button>
+      </div>
     </div>
   );
 }
