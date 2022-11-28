@@ -5,6 +5,7 @@ import { Select, SelectItem } from 'components/Select';
 import SettingItem from 'components/SettingItem';
 import Switch from 'components/Switch';
 import { useSettings } from 'hooks';
+import { mutate } from 'swr';
 
 function SettingsPage() {
   const settings = useSettings();
@@ -23,9 +24,6 @@ function SettingsPage() {
       <SettingItem label="検索の最適化">
         <Switch />
       </SettingItem>
-      <div className="flex flex-row-reverse">
-        <Button>保存</Button>
-      </div>
     </div>
   );
 }

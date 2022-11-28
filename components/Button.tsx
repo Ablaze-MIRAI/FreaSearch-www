@@ -8,6 +8,7 @@ type props = {
   link?: string;
   children: React.ReactNode;
   className?: string;
+  onClick?: () => void;
 };
 
 const ButtonElement: React.FC<props> = ({ link, children, ...props }) => {

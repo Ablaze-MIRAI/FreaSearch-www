@@ -12,6 +12,7 @@ const Select: FC<RadixSelect.SelectProps> = ({ children, value, onValueChange, .
       value={selected}
       onValueChange={(value) => {
         setSelected(value);
+        onValueChange?.(value);
       }}
       {...props}
     >
