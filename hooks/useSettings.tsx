@@ -20,13 +20,13 @@ class Settings implements ISettings {
   async saveSettings(key: keyof Settings, value: any) {
     this[key] = value;
 
-    const updatedSettings = await fetch('/api/settings', {
+    await fetch('/api/settings', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(this),
-    }).then((res) => res.json());
+    });
   }
 
   setLanguage(language: 'ja' | 'en') {
