@@ -39,7 +39,7 @@ interface props {
   children: ReactNode;
 }
 
-export const SettingsProvider: FC<props> = (value, children) => {
+export const SettingsProvider: FC<props> = ({ value, children }) => {
   return (
     <SettingsContext.Provider value={new Settings(value)}>{children}</SettingsContext.Provider>
   );
