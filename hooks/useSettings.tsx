@@ -1,7 +1,8 @@
 'use client';
 
-import { FC, createContext, useContext, useState, useRef } from 'react';
-import useSWR from 'swr';
+import { createContext, useContext, ReactNode, FC } from 'react';
+
+const SettingsContext = createContext<Settings>(undefined!);
 
 interface ISettings {
   language: 'ja' | 'en';
@@ -11,6 +12,10 @@ interface ISettings {
 
 class Settings implements ISettings {
   language: 'ja' | 'en' = 'ja';
+
+  constructor(settings: any) {
+    Object.assign(this, settings);
+  }
 
   async saveSettings(key: keyof Settings, value: any) {
     this[key] = value;
@@ -22,7 +27,6 @@ class Settings implements ISettings {
       },
       body: JSON.stringify(this),
     }).then((res) => res.json());
-    mutate('/api/settings', updatedSettings);
   }
 
   setLanguage(language: 'ja' | 'en') {
@@ -30,7 +34,16 @@ class Settings implements ISettings {
   }
 }
 
-const SettingsContext = createContext<Settings>(undefined!);
+interface props {
+  value: any;
+  children: ReactNode;
+}
+
+export const SettingsProvider: FC<props> = (value, children) => {
+  return (
+    <SettingsContext.Provider value={new Settings(value)}>{children}</SettingsContext.Provider>
+  );
+};
 
 export function useSettings() {
   const settings = useContext(SettingsContext);
@@ -41,13 +54,3 @@ export function useSettings() {
 
   return settings;
 }
-
-interface props {
-  children: React.ReactNode;
-}
-
-export const SettingsProvider: FC<props> = ({ children }) => {
-  const settings = useSWR('/api/settings');
-
-  return <SettingsContext.Provider value={new Settings()}>{children}</SettingsContext.Provider>;
-};
