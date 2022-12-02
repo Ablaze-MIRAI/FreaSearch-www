@@ -1,10 +1,15 @@
 'use client';
 
 import { createContext, useContext, ReactNode, FC } from 'react';
+import { useCookies } from 'react-cookie';
+import { CookieSetOptions } from 'universal-cookie';
 
 const SettingsContext = createContext<Settings>(undefined!);
 
 interface ISettings {
+  setCookies: (name: 'settings', value: any, options?: CookieSetOptions) => void;
+  cookieData: any;
+
   language: 'ja' | 'en';
 
   setLanguage: (language: 'ja' | 'en') => void;
@@ -12,21 +17,22 @@ interface ISettings {
 
 class Settings implements ISettings {
   language: 'ja' | 'en' = 'ja';
+  setCookies: (name: 'settings', value: any, options?: CookieSetOptions) => void;
+  cookieData: any;
 
-  constructor(settings: any) {
+  constructor(
+    settings: any,
+    setCookies: (name: 'settings', value: any, options?: CookieSetOptions) => void
+  ) {
     Object.assign(this, settings);
+    this.setCookies = setCookies;
+    this.cookieData = settings;
   }
 
   async saveSettings(key: keyof Settings, value: any) {
     this[key] = value;
-
-    await fetch('/api/settings', {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(this),
-    });
+    this.cookieData[key] = value;
+    this.setCookies('settings', this.cookieData, { path: '/' });
   }
 
   setLanguage(language: 'ja' | 'en') {
@@ -39,10 +45,13 @@ interface props {
   children: ReactNode;
 }
 
-export const SettingsProvider: FC<props> = ({ value, children }) => {
-  return (
-    <SettingsContext.Provider value={new Settings(value)}>{children}</SettingsContext.Provider>
-  );
+export const SettingsProvider: FC<props> = ({ children }) => {
+  const [cookies, setCookie] = useCookies(['settings']);
+  console.log(cookies.settings);
+  const settingData = cookies.settings || {};
+
+  const settings = new Settings(settingData, setCookie);
+  return <SettingsContext.Provider value={settings}>{children}</SettingsContext.Provider>;
 };
 
 export function useSettings() {
@@ -54,3 +63,8 @@ export function useSettings() {
 
   return settings;
 }
+interface props {
+  children: React.ReactNode;
+}
+
+export default SettingsProvider;

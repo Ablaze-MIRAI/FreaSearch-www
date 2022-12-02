@@ -5,6 +5,7 @@ import { Select, SelectItem } from 'components/Select';
 import SettingItem from 'components/SettingItem';
 import Switch from 'components/Switch';
 import { useSettings } from 'hooks';
+import { useRouter } from 'next/navigation';
 
 function SettingsPage() {
   const settings = useSettings();
