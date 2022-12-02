@@ -14,17 +14,18 @@ const Input: React.FC<Props> = ({ leftItem, rightItem, className, ...props }) =>
         type="text"
         className={classNames(
           'border-none outline-none bg-gray-100 h-12 px-5 rounded-full w-full',
-          leftItem && 'pl-14'
+          leftItem && 'pl-14',
+          rightItem && 'pr-14'
         )}
         {...props}
       />
       {leftItem && (
-        <div className="absolute left-5 text-gray-400 top-0 h-full flex items-center">
+        <div className="absolute left-0 text-gray-400 top-0 h-full flex items-center">
           {leftItem}
         </div>
       )}
       {rightItem && (
-        <div className="absolute right-5 text-gray-400 top-0 h-full flex items-center">
+        <div className="absolute right-0 text-gray-400 top-0 h-full flex items-center">
           {rightItem}
         </div>
       )}

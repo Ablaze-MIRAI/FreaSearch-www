@@ -21,7 +21,7 @@ const Home: NextPage = () => {
         </div>
         <Input
           placeholder="検索する..."
-          leftItem={<IconSearch />}
+          leftItem={<IconSearch className="ml-5" />}
           className="mt-12 outline-none transition"
         />
       </main>
