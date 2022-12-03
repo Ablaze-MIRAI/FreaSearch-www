@@ -9,7 +9,7 @@ type Props = JSX.IntrinsicElements['input'] & {
 
 const Input: React.FC<Props> = ({ leftItem, rightItem, className, ...props }) => {
   return (
-    <div className={classNames('relative', className)}>
+    <div className={classNames('relative rounded-full overflow-hidden', className)}>
       <input
         type="text"
         className={classNames(

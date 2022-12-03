@@ -4,7 +4,7 @@ import Button from 'components/Button';
 import IconButton from 'components/IconButton';
 import Input from 'components/Input';
 import Footer from 'components/Footer';
-import { IconSearch, IconSettings } from '@tabler/icons';
+import { IconArrowLeft, IconArrowRight, IconSearch, IconSettings } from '@tabler/icons';
 
 const Home: NextPage = () => {
   return (
@@ -22,6 +22,11 @@ const Home: NextPage = () => {
         <Input
           placeholder="検索する..."
           leftItem={<IconSearch className="ml-5" />}
+          rightItem={
+            <IconButton className="h-full w-16 rounded-none">
+              <IconArrowRight />
+            </IconButton>
+          }
           className="mt-12 outline-none transition"
         />
       </main>
