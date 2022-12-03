@@ -6,7 +6,7 @@ type prop = React.ComponentProps<typeof Button>;
 
 const IconButton: React.FC<prop> = ({ children, className, ...props }) => {
   return (
-    <Button className={classNames('!px-2 w-11 border-none', className)} {...props}>
+    <Button variant="ghost" className={classNames('!px-2 w-11', className)} {...props}>
       {children}
     </Button>
   );

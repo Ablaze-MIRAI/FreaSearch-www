@@ -8,6 +8,7 @@ type props = {
   link?: string;
   children: React.ReactNode;
   className?: string;
+  variant?: 'outline' | 'ghost';
   onClick?: () => void;
 };
 
@@ -26,6 +27,7 @@ const Button: React.FC<props> = ({ children, className, ...props }) => {
     <ButtonElement
       className={classNames(
         'flex items-center justify-center border border-brand hover:bg-gray-100/70 h-11 px-5 rounded-md transition',
+        { 'border-none': props.variant === 'ghost' },
         className
       )}
       {...props}
