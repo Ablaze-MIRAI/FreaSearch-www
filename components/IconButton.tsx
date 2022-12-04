@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import Button, { ButtonProps } from './Button';
 
-export type IconButtonProps = ButtonProps;
+export interface IconButtonProps extends ButtonProps {}
 
 const IconButton: React.FC<ButtonProps> = ({ children, className, ...props }) => {
   return (
