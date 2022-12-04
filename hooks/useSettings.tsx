@@ -41,7 +41,6 @@ class Settings implements ISettings {
 }
 
 interface props {
-  value: any;
   children: ReactNode;
 }
 
