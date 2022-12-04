@@ -40,11 +40,11 @@ class Settings implements ISettings {
   }
 }
 
-interface props {
+interface Props {
   children: ReactNode;
 }
 
-export const SettingsProvider: FC<props> = ({ children }) => {
+export const SettingsProvider: FC<Props> = ({ children }) => {
   const [cookies, setCookie] = useCookies(['settings']);
   const settingData = cookies.settings || {};
 
@@ -61,7 +61,7 @@ export function useSettings() {
 
   return settings;
 }
-interface props {
+interface Props {
   children: React.ReactNode;
 }
 
