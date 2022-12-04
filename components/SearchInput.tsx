@@ -8,11 +8,13 @@ import { useRouter } from 'next/navigation';
 
 const SearchInput: FC<InputProps> = ({ ...props }) => {
   const router = useRouter();
-  const keyWordInputRef = useRef<HTMLInputElement>(null!);
+  const keywordInputRef = useRef<HTMLInputElement>(null!);
 
   const handleSearch = () => {
-    console.log(keyWordInputRef);
-    router.push(`/search?q=${keyWordInputRef.current.value}`);
+    const keyword = keywordInputRef.current.value;
+    if (keyword !== '') {
+      router.push(`/search?q=${keyword}`);
+    }
   };
 
   return (
@@ -30,7 +32,7 @@ const SearchInput: FC<InputProps> = ({ ...props }) => {
         }
       }}
       className="mt-12 outline-none transition"
-      ref={keyWordInputRef}
+      ref={keywordInputRef}
       {...props}
     />
   );
