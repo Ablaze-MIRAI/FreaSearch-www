@@ -1,9 +1,9 @@
 import React from 'react';
 
-type prop = {
+export interface prop {
   children: React.ReactNode;
   label: string;
-};
+}
 
 const SettingItem: React.FC<prop> = ({ children, label }) => {
   return (

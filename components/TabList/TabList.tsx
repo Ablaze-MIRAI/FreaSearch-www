@@ -1,10 +1,10 @@
 import React from 'react';
 
-type props = {
+interface TabListProps {
   children: React.ReactNode;
-};
+}
 
-const TabList: React.FC<props> = ({ children }) => {
+const TabList: React.FC<TabListProps> = ({ children }) => {
   return <div className="flex-grow flex items-center space-x-4">{children}</div>;
 };
 

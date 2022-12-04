@@ -4,11 +4,11 @@ import { FC } from 'react';
 import * as RadixSwitch from '@radix-ui/react-switch';
 import classNames from 'classnames';
 
-type Props = {
+export interface SwitchProps {
   value?: false;
-};
+}
 
-const Switch: FC<Props> = ({ value }) => {
+const Switch: FC<SwitchProps> = ({ value }) => {
   return (
     <RadixSwitch.Root
       checked={value}

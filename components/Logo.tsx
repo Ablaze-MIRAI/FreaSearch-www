@@ -1,11 +1,11 @@
 import React from 'react';
 
-type props = {
+export interface LogoProps {
   height?: number;
   className?: string;
-};
+}
 
-const Logo: React.FC<props> = ({ height = 120, className }) => {
+const Logo: React.FC<LogoProps> = ({ height = 120, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -35,7 +35,7 @@ const Logo: React.FC<props> = ({ height = 120, className }) => {
   );
 };
 
-const LogoIcon: React.FC<props> = ({ height = 30, className }) => {
+const LogoIcon: React.FC<LogoProps> = ({ height = 30, className }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

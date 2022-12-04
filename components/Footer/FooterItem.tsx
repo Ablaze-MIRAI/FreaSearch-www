@@ -1,11 +1,11 @@
 import Link from 'next/link';
 
-type props = {
+export interface FooterItemProps {
   label: string;
   link: string;
-};
+}
 
-const FooterItem: React.FC<props> = ({ label, link }) => {
+const FooterItem: React.FC<FooterItemProps> = ({ label, link }) => {
   return (
     <Link href={link}>
       <div>{label}</div>

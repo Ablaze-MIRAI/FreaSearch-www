@@ -2,13 +2,13 @@ import React from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 
-type props = {
+export interface TabItemProps {
   href: string;
   isSelected: boolean;
   children: React.ReactNode;
-};
+}
 
-const TabItem: React.FC<props> = ({ href, isSelected, children }) => {
+const TabItem: React.FC<TabItemProps> = ({ href, isSelected, children }) => {
   return (
     <Link
       href={href}
