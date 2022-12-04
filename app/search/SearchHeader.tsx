@@ -1,6 +1,9 @@
+import { IconSettings } from '@tabler/icons';
+import IconButton from 'components/IconButton';
 import { LogoIcon } from 'components/Logo';
 import SearchInput from 'components/SearchInput';
 import { TabItem, TabList } from 'components/TabList';
+import Link from 'next/link';
 import { FC } from 'react';
 
 interface Props {
@@ -17,7 +20,7 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
 
   return (
     <div className="relative flex flex-col px-28 pt-7 pb-1 bg-white drop-shadow-md">
-      <LogoIcon className="absolute left-0 h-9 mt-2 ml-10" />
+      <LogoIcon className="absolute left-10 h-9 mt-2" />
       <div className="w-[500px]">
         <SearchInput className="mb-3" />
         <TabList>
@@ -36,6 +39,11 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
           })}
         </TabList>
       </div>
+      <Link href="/settings" legacyBehavior>
+        <IconButton as="a" className="absolute right-10">
+          <IconSettings />
+        </IconButton>
+      </Link>
     </div>
   );
 };
