@@ -5,8 +5,9 @@ import Input, { InputProps } from './Input';
 import IconButton from './IconButton';
 import { IconArrowRight, IconSearch } from '@tabler/icons';
 import { useRouter } from 'next/navigation';
+import classNames from 'classnames';
 
-const SearchInput: FC<InputProps> = ({ ...props }) => {
+const SearchInput: FC<InputProps> = ({ className, ...props }) => {
   const router = useRouter();
   const keywordInputRef = useRef<HTMLInputElement>(null!);
 
@@ -31,7 +32,7 @@ const SearchInput: FC<InputProps> = ({ ...props }) => {
           handleSearch();
         }
       }}
-      className="mt-12 outline-none transition"
+      className={classNames('outline-none transition', className)}
       ref={keywordInputRef}
       {...props}
     />

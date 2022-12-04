@@ -24,7 +24,7 @@ const Home: NextPage = () => {
         <div className="mt-48 flex justify-center">
           <Logo />
         </div>
-        <SearchInput />
+        <SearchInput className="mt-12" />
       </main>
       <Footer />
     </div>
