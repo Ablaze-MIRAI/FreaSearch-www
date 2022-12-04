@@ -1,14 +1,20 @@
 'use client';
 
-import { FC } from 'react';
+import { createRef, FC, useRef } from 'react';
 import Input, { InputProps } from './Input';
 import IconButton from './IconButton';
 import { IconArrowRight, IconSearch } from '@tabler/icons';
+import { useRouter } from 'next/navigation';
 
 const SearchInput: FC<InputProps> = ({ ...props }) => {
+  const router = useRouter();
+  const keyWordInputRef = useRef<HTMLInputElement>(null!);
+
   const handleSearch = () => {
-    console.log('submit');
+    console.log(keyWordInputRef);
+    router.push(`/search?q=${keyWordInputRef.current.value}`);
   };
+
   return (
     <Input
       placeholder="検索する..."
@@ -24,6 +30,7 @@ const SearchInput: FC<InputProps> = ({ ...props }) => {
         }
       }}
       className="mt-12 outline-none transition"
+      ref={keyWordInputRef}
       {...props}
     />
   );
