@@ -18,6 +18,11 @@ const SearchInput: FC<InputProps> = ({ ...props }) => {
           <IconArrowRight />
         </IconButton>
       }
+      onKeyUpCapture={(e) => {
+        if (e.key === 'Enter') {
+          handleSearch();
+        }
+      }}
       className="mt-12 outline-none transition"
       {...props}
     />
