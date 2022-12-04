@@ -17,7 +17,7 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
 
   return (
     <div className="relative flex flex-col px-28 pt-7 pb-1 bg-white drop-shadow-md">
-      <LogoIcon className="absolute left-0 h-10 mt-1 ml-10" />
+      <LogoIcon className="absolute left-0 h-9 mt-2 ml-10" />
       <div className="w-[500px]">
         <SearchInput className="mb-3" />
         <TabList>
