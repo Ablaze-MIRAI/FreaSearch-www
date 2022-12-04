@@ -21,7 +21,7 @@ export default function SettingsLayout({ children }: { children: React.ReactNode
         <Link href="/">
           <LogoIcon className="shrink-0 grow-0" />
         </Link>
-        <h1 className="font-bold text-lg">Settings</h1>
+        <h1 className="font-semibold text-lg">Settings</h1>
         <TabList>
           {settings.map((page) => (
             <TabItem href={`/settings/${page.slug}`} isSelected={page.slug === slug}>
