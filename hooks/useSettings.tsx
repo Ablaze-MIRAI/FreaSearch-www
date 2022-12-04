@@ -47,7 +47,6 @@ interface props {
 
 export const SettingsProvider: FC<props> = ({ children }) => {
   const [cookies, setCookie] = useCookies(['settings']);
-  console.log(cookies.settings);
   const settingData = cookies.settings || {};
 
   const settings = new Settings(settingData, setCookie);
