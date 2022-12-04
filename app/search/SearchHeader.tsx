@@ -8,7 +8,7 @@ interface Props {
 }
 
 const SearchHeader: FC<Props> = ({ searchParams }) => {
-  const types = [
+  const categories = [
     { id: 'all', label: 'All' },
     { id: 'images', label: 'Images' },
     { id: 'videos', label: 'Videos' },
@@ -21,16 +21,16 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
       <div className="w-[500px]">
         <SearchInput className="mb-3" />
         <TabList>
-          {types.map((type) => {
+          {categories.map((category) => {
             const currentSearchParams = new URLSearchParams(searchParams);
-            currentSearchParams.set('type', type.id);
+            currentSearchParams.set('category', category.id);
 
             return (
               <TabItem
                 href={`/search/?${currentSearchParams.toString()}`}
-                isSelected={type.id === searchParams.get('type')}
+                isSelected={category.id === searchParams.get('category')}
               >
-                {type.label}
+                {category.label}
               </TabItem>
             );
           })}
