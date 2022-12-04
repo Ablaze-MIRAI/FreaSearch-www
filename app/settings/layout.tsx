@@ -1,21 +1,20 @@
-import 'styles/globals.css';
+'use client';
+
 import { LogoIcon } from 'components/Logo';
 import { TabList, TabItem } from 'components/TabList';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
-export default function SettingsLayout({
-  children,
-  params,
-}: {
-  children: React.ReactNode;
-  params: { pageId: string };
-}) {
+export default function SettingsLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname();
+  const slug = pathname?.split('/')[2];
   const settings = [
-    { pageId: 'general', name: 'General' },
-    { pageId: 'design', name: 'Design' },
-    { pageId: 'privacy', name: 'Privacy' },
-    { pageId: 'serachengine', name: 'Serach Engine' },
+    { slug: 'general', name: 'General' },
+    { slug: 'design', name: 'Design' },
+    { slug: 'privacy', name: 'Privacy' },
+    { slug: 'serachengine', name: 'Serach Engine' },
   ];
+
   return (
     <div className="max-w-4xl mx-auto">
       <div className="flex items-center space-x-10 h-16">
@@ -25,7 +24,7 @@ export default function SettingsLayout({
         <h1 className="font-bold text-lg">Settings</h1>
         <TabList>
           {settings.map((page) => (
-            <TabItem href={`/settings/${page.pageId}`} isSelected={page.pageId === params.pageId}>
+            <TabItem href={`/settings/${page.slug}`} isSelected={page.slug === slug}>
               {page.name}
             </TabItem>
           ))}
