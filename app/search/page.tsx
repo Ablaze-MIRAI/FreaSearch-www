@@ -9,7 +9,7 @@ export default function SearchPage({
 
   return (
     <div>
-      <SearchHeader type={type} searchParams={new URLSearchParams(searchParams)} />
+      <SearchHeader searchParams={new URLSearchParams(searchParams)} />
     </div>
   );
 }
