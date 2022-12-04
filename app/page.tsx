@@ -2,9 +2,9 @@ import type { NextPage } from 'next';
 import Logo from 'components/Logo';
 import Button from 'components/Button';
 import IconButton from 'components/IconButton';
-import Input from 'components/Input';
+import SearchInput from 'components/SearchInput';
 import Footer from 'components/Footer';
-import { IconArrowLeft, IconArrowRight, IconSearch, IconSettings } from '@tabler/icons';
+import { IconSettings } from '@tabler/icons';
 
 const Home: NextPage = () => {
   return (
@@ -19,16 +19,7 @@ const Home: NextPage = () => {
         <div className="mt-48 flex justify-center">
           <Logo />
         </div>
-        <Input
-          placeholder="検索する..."
-          leftItem={<IconSearch className="ml-5" />}
-          rightItem={
-            <IconButton className="h-full w-16 rounded-none">
-              <IconArrowRight />
-            </IconButton>
-          }
-          className="mt-12 outline-none transition"
-        />
+        <SearchInput />
       </main>
       <Footer />
     </div>

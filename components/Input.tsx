@@ -1,15 +1,15 @@
 import classNames from 'classnames';
 import React, { ReactNode } from 'react';
 
-type Props = JSX.IntrinsicElements['input'] & {
+export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   leftItem?: ReactNode;
   rightItem?: ReactNode;
   className?: string;
-};
+}
 
-const Input: React.FC<Props> = ({ leftItem, rightItem, className, ...props }) => {
+const Input: React.FC<InputProps> = ({ leftItem, rightItem, className, ...props }) => {
   return (
-    <div className={classNames('relative rounded-full overflow-hidden', className)}>
+    <div className={classNames('relative rounded-full', className)}>
       <input
         type="text"
         className={classNames(

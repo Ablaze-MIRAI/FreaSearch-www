@@ -1,18 +1,18 @@
 import { useEffect } from 'react';
 import React from 'react';
 import classNames from 'classnames';
-import Link from 'next/link';
+import Link, { LinkProps } from 'next/link';
 
-type props = {
+export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   isLink?: boolean;
   link?: string;
   children: React.ReactNode;
   className?: string;
+  onClick: () => void;
   variant?: 'outline' | 'ghost';
-  onClick?: () => void;
-};
+}
 
-const ButtonElement: React.FC<props> = ({ link, children, ...props }) => {
+const ButtonElement: React.FC<ButtonProps> = ({ link, children, ...props }) => {
   return link === undefined ? (
     <button {...props}>{children}</button>
   ) : (
@@ -22,7 +22,7 @@ const ButtonElement: React.FC<props> = ({ link, children, ...props }) => {
   );
 };
 
-const Button: React.FC<props> = ({ children, className, ...props }) => {
+const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => {
   return (
     <ButtonElement
       className={classNames(
