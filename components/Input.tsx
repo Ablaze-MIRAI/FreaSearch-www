@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { ReactNode } from 'react';
+import React, { forwardRef, ReactNode } from 'react';
 
 export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   leftItem?: ReactNode;
@@ -7,7 +7,7 @@ export interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   className?: string;
 }
 
-const Input: React.FC<InputProps> = ({ leftItem, rightItem, className, ...props }) => {
+const Input: React.FC<InputProps> = forwardRef(({ leftItem, rightItem, className, ...props }) => {
   return (
     <div className={classNames('relative rounded-full', className)}>
       <input
@@ -31,6 +31,6 @@ const Input: React.FC<InputProps> = ({ leftItem, rightItem, className, ...props 
       )}
     </div>
   );
-};
+});
 
 export default Input;

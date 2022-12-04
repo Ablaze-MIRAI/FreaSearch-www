@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { forwardRef, useEffect } from 'react';
 import { FC } from 'react';
 import classNames from 'classnames';
 import Link, { LinkProps } from 'next/link';
@@ -12,7 +12,7 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   variant?: 'outline' | 'ghost';
 }
 
-const Button: FC<ButtonProps> = ({ as, children, className, ...props }) => {
+const Button: FC<ButtonProps> = forwardRef(({ as, children, className, ...props }) => {
   const CustomElement = ({ ...props }) => {
     const Tag = as as keyof JSX.IntrinsicElements;
     return <Tag {...props} />;
@@ -37,6 +37,6 @@ const Button: FC<ButtonProps> = ({ as, children, className, ...props }) => {
       </button>
     );
   }
-};
+});
 
 export default Button;
