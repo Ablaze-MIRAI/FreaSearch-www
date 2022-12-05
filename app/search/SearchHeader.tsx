@@ -30,6 +30,7 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
 
             return (
               <TabItem
+                key={category.id}
                 href={`/search/?${currentSearchParams.toString()}`}
                 isSelected={category.id === (searchParams.get('category') ?? 'all')}
               >
