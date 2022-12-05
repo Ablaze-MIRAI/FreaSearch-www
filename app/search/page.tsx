@@ -1,4 +1,6 @@
+import { Suspense } from 'react';
 import SearchHeader from './SearchHeader';
+import SearchResults from './SearchResults';
 
 export default function SearchPage({
   searchParams,
@@ -10,6 +12,11 @@ export default function SearchPage({
   return (
     <div>
       <SearchHeader searchParams={new URLSearchParams(searchParams)} />
+      <div className="px-28">
+        <Suspense>
+          <SearchResults searchParams={new URLSearchParams(searchParams)} />
+        </Suspense>
+      </div>
     </div>
   );
 }
