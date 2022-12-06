@@ -11,8 +11,8 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
     res.json()
   );
   return (
-    <div>
-      <div className="mt-5 text-gray-600 text-sm">検索結果: {data.results.length}件</div>
+    <div className="py-5">
+      <div className="text-gray-600 text-sm">検索結果: {data.results.length}件</div>
       <div className="flex flex-col space-y-3 mt-3 bg-white rounded-xl px-5">
         {data.results.map((result: { id: string; url: string; title: string; content: string }) => (
           <div key={result.url} className="flex flex-col py-2">
