@@ -12,7 +12,7 @@ const Select: FC<RadixSelect.SelectProps> = ({ children, ...props }) => {
         <IconChevronDown size={16} />
       </RadixSelect.Trigger>
       <RadixSelect.Portal>
-        <RadixSelect.Content className="bg-white drop-shadow-md p-2 rounded-md">
+        <RadixSelect.Content className="bg-white shadow-md p-2 rounded-md">
           <RadixSelect.Viewport>{children}</RadixSelect.Viewport>
         </RadixSelect.Content>
       </RadixSelect.Portal>

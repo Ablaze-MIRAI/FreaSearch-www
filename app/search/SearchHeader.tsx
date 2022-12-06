@@ -19,7 +19,7 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
   ];
 
   return (
-    <div className="relative flex flex-col px-28 pt-7 pb-1 bg-white drop-shadow-md">
+    <div className="relative flex flex-col px-28 pt-7 pb-1 bg-white shadow-md">
       <LogoIcon className="absolute left-10 h-9 mt-2" />
       <div className="w-[500px]">
         <SearchInput defaultValue={searchParams.get('q') as string} className="mb-3" />

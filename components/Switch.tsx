@@ -19,7 +19,7 @@ const Switch: FC<SwitchProps> = ({ value }) => {
     >
       <RadixSwitch.Thumb
         className={classNames(
-          'block w-5 h-full bg-white drop-shadow-sm rounded-full',
+          'block w-5 h-full bg-white shadow-sm rounded-full',
           ' group-data-[state=checked]:translate-x-full transition'
         )}
       />
