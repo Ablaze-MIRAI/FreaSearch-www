@@ -10,13 +10,10 @@ export default function SearchPage({
   const { q, type = 'all' } = searchParams;
 
   return (
-    <div>
-      <SearchHeader searchParams={new URLSearchParams(searchParams)} />
-      <div className="px-28">
-        <Suspense>
-          <SearchResults searchParams={new URLSearchParams(searchParams)} />
-        </Suspense>
-      </div>
+    <div className="px-28">
+      <Suspense>
+        <SearchResults searchParams={new URLSearchParams(searchParams)} />
+      </Suspense>
     </div>
   );
 }

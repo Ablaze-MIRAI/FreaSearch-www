@@ -4,8 +4,9 @@ import { LogoIcon } from 'components/Logo';
 import { TabList, TabItem } from 'components/TabList';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { ReactNode } from 'react';
 
-export default function SettingsLayout({ children }: { children: React.ReactNode }) {
+export default function SettingsLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const slug = pathname?.split('/')[2];
   const settings = [
