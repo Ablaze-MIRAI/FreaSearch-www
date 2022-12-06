@@ -11,7 +11,9 @@ export default function SearchLayout({
 }) {
   return (
     <div className="flex flex-col justify-between min-h-screen">
-      <SearchHeader searchParams={new URLSearchParams(searchParams)} />
+      <div>
+        <SearchHeader searchParams={new URLSearchParams(searchParams)} />
+      </div>
       {children}
       <Footer />
     </div>
