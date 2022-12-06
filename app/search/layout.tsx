@@ -1,3 +1,4 @@
+import Footer from 'components/Footer';
 import { ReactNode } from 'react';
 import SearchHeader from './SearchHeader';
 
@@ -8,11 +9,11 @@ export default function SearchLayout({
   children: ReactNode;
   searchParams: { q: string; type: string };
 }) {
-  console.log(searchParams);
   return (
-    <div className="bg-gray-100 min-h-screen">
+    <div className="flex flex-col justify-between bg-gray-100 min-h-screen">
       <SearchHeader searchParams={new URLSearchParams(searchParams)} />
       {children}
+      <Footer />
     </div>
   );
 }

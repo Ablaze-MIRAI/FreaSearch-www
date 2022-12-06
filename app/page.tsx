@@ -9,7 +9,7 @@ import Link from 'next/link';
 
 const Home: NextPage = () => {
   return (
-    <div className="min-h-screen">
+    <div>
       <main className="max-w-2xl mx-auto">
         <div className="absolute top-5 right-7 flex">
           <Link href="#" legacyBehavior>
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
         </div>
         <SearchInput className="mt-12" />
       </main>
-      <Footer />
+      <Footer className="absolute bottom-0" />
     </div>
   );
 };
