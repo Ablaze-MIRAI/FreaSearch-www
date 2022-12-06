@@ -9,7 +9,7 @@ export default function SearchPage({
   const { q, type = 'all' } = searchParams;
 
   return (
-    <div className="px-28 bg-gray-100">
+    <div className="px-28">
       <Suspense>
         <SearchResults searchParams={new URLSearchParams(searchParams)} />
       </Suspense>
