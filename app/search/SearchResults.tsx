@@ -19,7 +19,7 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
             <a href={result.url} className="text-blue-700">
               {result.title}
             </a>
-            <span className="text-xs">{result.url}</span>
+            <span className="text-xs mb-2">{result.url}</span>
             <span className="text-gray-600 text-xs">{result.content}</span>
           </div>
         ))}
