@@ -13,7 +13,7 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
   return (
     <div className="py-5">
       <div className="text-gray-600 text-sm">検索結果: {data.results.length}件</div>
-      <div className="flex flex-col space-y-3 mt-3 bg-white rounded-xl px-5">
+      <div className="flex flex-col space-y-3 mt-3 bg-white rounded-xl px-5 py-3 w-[700px]">
         {data.results.map((result: { id: string; url: string; title: string; content: string }) => (
           <div key={result.url} className="flex flex-col py-2">
             <a href={result.url} className="text-blue-700">
