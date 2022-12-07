@@ -10,6 +10,7 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
   const data = await fetch(`${API_URL}/search?${searchParams.toString()}`).then((res) =>
     res.json()
   );
+
   return (
     <div className="py-7">
       <div className="text-gray-600 text-sm">検索結果: {data.results.length}件</div>

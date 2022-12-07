@@ -1,4 +1,11 @@
-import { IconSettings } from '@tabler/icons';
+import {
+  IconPhoto,
+  IconSearch,
+  IconSettings,
+  IconTool,
+  IconVideo,
+  TablerIcon,
+} from '@tabler/icons';
 import IconButton from 'components/IconButton';
 import { LogoIcon } from 'components/Logo';
 import SearchInput from 'components/SearchInput';
@@ -10,31 +17,43 @@ interface Props {
   searchParams: URLSearchParams;
 }
 
-const SearchHeader: FC<Props> = ({ searchParams }) => {
-  const categories = [
-    { id: 'all', label: 'All' },
-    { id: 'images', label: 'Images' },
-    { id: 'videos', label: 'Videos' },
-    { id: 'tech', label: 'Tech' },
-  ];
+const categories = [
+  { id: 'all', label: 'All', icon: IconSearch },
+  { id: 'images', label: 'Images', icon: IconPhoto },
+  { id: 'videos', label: 'Videos', icon: IconVideo },
+  { id: 'tech', label: 'Tech', icon: IconTool },
+];
 
+const SearchHeader: FC<Props> = ({ searchParams }) => {
   return (
     <div className="relative flex flex-col px-28 pt-7 pb-1 bg-white shadow-md">
       <LogoIcon className="absolute left-10 h-9 mt-2" />
       <div className="w-[500px]">
         <SearchInput defaultValue={searchParams.get('q') as string} className="mb-3" />
         <TabList>
-          {categories.map((category) => {
+          {categories.map((category: { id: string; label: string; icon: TablerIcon }) => {
             const currentSearchParams = new URLSearchParams(searchParams);
             currentSearchParams.set('category', category.id);
+            const isSelected = category.id === (searchParams.get('category') || 'all');
+            const TabIcon: FC = () => {
+              const Icon = category.icon;
+              return (
+                <Icon
+                  size={16}
+                  className={(isSelected ? 'text-brand' : 'text-gray-700') as string}
+                />
+              );
+            };
 
             return (
               <TabItem
                 key={category.id}
                 href={`/search/?${currentSearchParams.toString()}`}
-                isSelected={category.id === (searchParams.get('category') ?? 'all')}
+                isSelected={isSelected}
+                className="flex items-center space-x-2"
               >
-                {category.label}
+                <span>{category.label}</span>
+                <TabIcon />
               </TabItem>
             );
           })}
