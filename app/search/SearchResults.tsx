@@ -8,9 +8,9 @@ interface Props {
 // @ts-ignore
 const SearchResults: FC<Props> = async ({ searchParams }) => {
   const API_URL = process.env.API_URL;
-  const data = await fetch(`${API_URL}/search?${searchParams.toString()}`).then((res) =>
-    res.json()
-  );
+  const apiParams = new URLSearchParams(searchParams);
+  apiParams.set('pageno', apiParams.get('page') || '1');
+  const data = await fetch(`${API_URL}/search?${apiParams.toString()}`).then((res) => res.json());
 
   return (
     <div className="py-7">

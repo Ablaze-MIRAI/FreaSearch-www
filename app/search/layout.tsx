@@ -9,11 +9,9 @@ export default function SearchLayout({ children }: { children: ReactNode }) {
   const searchParams = useSearchParams();
 
   return (
-    <div className="flex flex-col justify-between min-h-screen">
-      <div>
-        <SearchHeader searchParams={new URLSearchParams(searchParams)} />
-      </div>
-      {children}
+    <div className="flex flex-col min-h-screen">
+      <SearchHeader searchParams={new URLSearchParams(searchParams)} />
+      <div className="flex-1">{children}</div>
       <Footer />
     </div>
   );
