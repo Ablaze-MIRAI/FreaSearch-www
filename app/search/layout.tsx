@@ -1,14 +1,13 @@
+'use client';
+
 import Footer from 'components/Footer';
+import { useSearchParams } from 'next/navigation';
 import { ReactNode } from 'react';
 import SearchHeader from './SearchHeader';
 
-export default function SearchLayout({
-  children,
-  searchParams,
-}: {
-  children: ReactNode;
-  searchParams: { q: string; type: string };
-}) {
+export default function SearchLayout({ children }: { children: ReactNode }) {
+  const searchParams = useSearchParams();
+
   return (
     <div className="flex flex-col justify-between min-h-screen">
       <div>
