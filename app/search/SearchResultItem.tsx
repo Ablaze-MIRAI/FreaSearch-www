@@ -6,10 +6,11 @@ interface Props {
   url: string;
   title: string;
   content: string;
+  engine: string;
   index: number;
 }
 
-const SearchResultItem: FC<Props> = ({ url, title, content, index }) => {
+const SearchResultItem: FC<Props> = ({ url, title, content, engine, index }) => {
   const delay = (index + 1) * 100;
   const SearchResultElement = useRef<HTMLDivElement>(null!);
 
@@ -30,6 +31,7 @@ const SearchResultItem: FC<Props> = ({ url, title, content, index }) => {
       </a>
       <span className="text-xs mb-2">{url}</span>
       <span className="text-gray-600 text-xs">{content}</span>
+      <div className="flex text-xs text-gray-400 mt-1 flex-row-reverse">{engine}</div>
     </div>
   );
 };
