@@ -1,4 +1,5 @@
 import {
+  IconNews,
   IconPhoto,
   IconSearch,
   IconSettings,
@@ -18,10 +19,11 @@ interface Props {
 }
 
 const categories = [
-  { id: 'all', label: 'All', icon: IconSearch },
+  { id: 'general', label: 'All', icon: IconSearch },
   { id: 'images', label: 'Images', icon: IconPhoto },
   { id: 'videos', label: 'Videos', icon: IconVideo },
-  { id: 'tech', label: 'Tech', icon: IconTool },
+  { id: 'news', label: 'News', icon: IconNews },
+  { id: 'it', label: 'Tech', icon: IconTool },
 ];
 
 const SearchHeader: FC<Props> = ({ searchParams }) => {
@@ -34,7 +36,7 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
           {categories.map((category: { id: string; label: string; icon: TablerIcon }) => {
             const currentSearchParams = new URLSearchParams(searchParams);
             currentSearchParams.set('category', category.id);
-            const isSelected = category.id === (searchParams.get('category') || 'all');
+            const isSelected = category.id === (searchParams.get('category') || 'general');
             const TabIcon: FC = () => {
               const Icon = category.icon;
               return (
