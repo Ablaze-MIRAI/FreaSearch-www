@@ -1,5 +1,7 @@
 import { FC } from 'react';
 import SearchResultItem from './SearchResultItem';
+import SearchResultImageItem from './SearchResultImageItem';
+import classNames from 'classnames';
 
 interface Props {
   searchParams: URLSearchParams;
@@ -16,21 +18,41 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
   if (res.ok) {
     return (
       <div className="py-7">
-        <div className="text-gray-600 text-sm">検索結果: {data.results.length}件</div>
+        {apiParams.get('category') === 'images' || (
+          <div className="text-gray-600 text-sm">検索結果: {data.results.length}件</div>
+        )}
         {data.results.length === 0 ? (
           <div className="text-gray-600 mt-2">
             <p>{apiParams.get('q')}と一致する検索結果が見つかりませんでした...。</p>
             <p>別のキーワードでお試しください。</p>
           </div>
         ) : (
-          <div className="flex flex-col space-y-3 mt-5 bg-white rounded-xl px-7 py-5 w-[700px] shadow-[0_3px_25px_-2px_rgba(0,0,0,0.1),0_5px_10px_-6px_rgba(0,0,0,0.1)]">
+          <div
+            className={classNames(
+              'mt-5 bg-white rounded-xl px-7 py-5',
+              'shadow-[0_3px_25px_-2px_rgba(0,0,0,0.1),0_5px_10px_-6px_rgba(0,0,0,0.1)]',
+              apiParams.get('category') === 'images'
+                ? 'grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-x-3 gap-y-5'
+                : 'flex w-[700px] flex-col space-y-3'
+            )}
+          >
             {data.results.map(
               (
-                result: { url: string; title: string; content: string; engine: string },
+                result: {
+                  url: string;
+                  image_src: string;
+                  thumbnail_src: string;
+                  title: string;
+                  content: string;
+                  engine: string;
+                },
                 index: number
-              ) => (
-                <SearchResultItem index={index} key={index} {...result} />
-              )
+              ) =>
+                apiParams.get('category') === 'images' ? (
+                  <SearchResultImageItem index={index} key={index} {...result} />
+                ) : (
+                  <SearchResultItem index={index} key={index} {...result} />
+                )
             )}
           </div>
         )}
