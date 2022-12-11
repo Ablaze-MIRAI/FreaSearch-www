@@ -20,7 +20,7 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
     if (keyword !== '') {
       const newParams = new URLSearchParams(defaultParams);
       newParams.set('q', keyword);
-      router.push(`/search${defaultParams && `?${newParams?.toString()}`}`);
+      router.replace(`/search${defaultParams && `?${newParams?.toString()}`}`);
     }
   };
 
