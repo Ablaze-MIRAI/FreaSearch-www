@@ -27,7 +27,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     if (as) {
       return (
-        <CustomElement className={buttonClassName} ref={ref} {...props}>
+        <CustomElement className={buttonClassName} {...props}>
           {children}
         </CustomElement>
       );
