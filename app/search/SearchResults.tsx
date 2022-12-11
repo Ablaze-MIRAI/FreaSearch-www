@@ -14,11 +14,12 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
   apiParams.set('pageno', apiParams.get('page') || '1');
   const res = await fetch(`${API_URL}/search?${apiParams.toString()}`);
   const data = await res.json();
+  const isImageTab = apiParams.get('category') === 'images';
 
   if (res.ok) {
     return (
-      <div className="py-7">
-        {apiParams.get('category') === 'images' || (
+      <div className={`py-7 ${isImageTab ? 'px-5' : 'px-28'}`}>
+        {isImageTab || (
           <div className="text-gray-600 text-sm">検索結果: {data.results.length}件</div>
         )}
         {data.results.length === 0 ? (
@@ -48,7 +49,7 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
                 },
                 index: number
               ) =>
-                apiParams.get('category') === 'images' ? (
+                isImageTab ? (
                   <SearchResultImageItem key={result.url} {...result} />
                 ) : (
                   <SearchResultItem index={index} key={result.url} {...result} />
