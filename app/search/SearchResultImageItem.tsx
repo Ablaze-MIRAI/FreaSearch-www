@@ -15,7 +15,7 @@ const SearchResultImageItem: FC<Props> = ({ url, image_src, thumbnail_src, title
   return (
     <Link href={url} className="border rounded-lg p-5 hover:bg-gray-50 transition-colors">
       <div className="max-w-[260px] mx-auto">
-        <div className="relative h-[200px]">
+        <div className="relative h-[140px]">
           <Image
             src={thumbnail_src}
             alt={title}
@@ -24,7 +24,7 @@ const SearchResultImageItem: FC<Props> = ({ url, image_src, thumbnail_src, title
             className="h-full w-full object-contain mx-auto"
           />
         </div>
-        <div className="overflow-hidden text-ellipsis mt-3">{title}</div>
+        <div className="overflow-hidden text-ellipsis text-sm my-3">{title}</div>
         <div className="overflow-hidden text-ellipsis text-xs text-gray-400">{url}</div>
       </div>
     </Link>
