@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { FC } from 'react';
 
 interface Props {
@@ -21,7 +22,7 @@ const SearchResultImageItem: FC<Props> = ({
   index,
 }) => {
   return (
-    <div className="border rounded-lg p-5">
+    <Link href={url} className="border rounded-lg p-5 hover:bg-gray-50 transition-colors">
       <div className="max-w-xs mx-auto">
         <div className="relative h-[200px]">
           <Image
@@ -35,7 +36,7 @@ const SearchResultImageItem: FC<Props> = ({
         <div className="overflow-hidden text-ellipsis mt-3">{title}</div>
         <div className="overflow-hidden text-ellipsis text-xs text-gray-400">{url}</div>
       </div>
-    </div>
+    </Link>
   );
 };
 
