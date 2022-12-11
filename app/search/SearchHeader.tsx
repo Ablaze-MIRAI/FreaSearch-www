@@ -31,7 +31,11 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
     <div className="relative flex flex-col px-28 pt-7 pb-1 bg-white shadow-md">
       <LogoIcon className="absolute left-10 h-9 mt-2" />
       <div className="w-[500px]">
-        <SearchInput defaultValue={searchParams.get('q') as string} className="mb-3" />
+        <SearchInput
+          defaultValue={searchParams.get('q') as string}
+          defaultParams={searchParams}
+          className="mb-3"
+        />
         <TabList>
           {categories.map((category: { id: string; label: string; icon: TablerIcon }) => {
             const currentSearchParams = new URLSearchParams(searchParams);

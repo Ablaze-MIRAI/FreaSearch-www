@@ -7,14 +7,20 @@ import { IconArrowRight, IconSearch } from '@tabler/icons';
 import { useRouter } from 'next/navigation';
 import classNames from 'classnames';
 
-const SearchInput: FC<InputProps> = ({ className, ...props }) => {
+export interface SearchInputParams extends InputProps {
+  defaultParams?: URLSearchParams;
+}
+
+const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props }) => {
   const router = useRouter();
   const keywordInputRef = useRef<HTMLInputElement>(null!);
 
   const handleSearch = () => {
     const keyword = keywordInputRef.current.value;
     if (keyword !== '') {
-      router.push(`/search?q=${keyword}`);
+      const newParams = new URLSearchParams(defaultParams);
+      newParams.set('q', keyword);
+      router.push(`/search${defaultParams && `?${newParams?.toString()}`}`);
     }
   };
 
