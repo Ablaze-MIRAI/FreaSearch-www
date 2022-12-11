@@ -14,7 +14,7 @@ interface Props {
 const SearchResultImageItem: FC<Props> = ({ url, image_src, thumbnail_src, title, engine }) => {
   return (
     <Link href={url} className="border rounded-lg p-5 hover:bg-gray-50 transition-colors">
-      <div className="max-w-xs mx-auto">
+      <div className="max-w-[260px] mx-auto">
         <div className="relative h-[200px]">
           <Image
             src={thumbnail_src}

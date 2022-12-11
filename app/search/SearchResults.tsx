@@ -30,11 +30,11 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
         ) : (
           <div
             className={classNames(
-              'mt-5 bg-white rounded-xl px-7',
+              'flex mt-5 bg-white rounded-xl px-7',
               'shadow-[0_3px_25px_-2px_rgba(0,0,0,0.1),0_5px_10px_-6px_rgba(0,0,0,0.1)]',
               apiParams.get('category') === 'images'
-                ? 'grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-x-3 gap-y-5 py-10'
-                : 'flex w-[700px] flex-col space-y-3 py-5'
+                ? 'flex-wrap gap-x-3 gap-y-5 py-10'
+                : ' w-[700px] flex-col space-y-3 py-5'
             )}
           >
             {data.results.map(
