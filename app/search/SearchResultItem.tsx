@@ -29,7 +29,7 @@ const SearchResultItem: FC<Props> = ({ url, title, content, engine, index }) => 
       <a href={url} className="text-blue-700">
         {title}
       </a>
-      <span className="text-xs mb-2">{url}</span>
+      <span className="text-xs mb-2 overflow-hidden text-ellipsis">{url}</span>
       <span className="text-gray-600 text-xs">{content}</span>
       <div className="flex text-xs text-gray-400 mt-1 flex-row-reverse">{engine}</div>
     </div>
