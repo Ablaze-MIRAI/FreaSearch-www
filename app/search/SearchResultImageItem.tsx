@@ -9,18 +9,9 @@ interface Props {
   title: string;
   content: string;
   engine: string;
-  index: number;
 }
 
-const SearchResultImageItem: FC<Props> = ({
-  url,
-  image_src,
-  thumbnail_src,
-  title,
-  content,
-  engine,
-  index,
-}) => {
+const SearchResultImageItem: FC<Props> = ({ url, image_src, thumbnail_src, title, engine }) => {
   return (
     <Link href={url} className="border rounded-lg p-5 hover:bg-gray-50 transition-colors">
       <div className="max-w-xs mx-auto">

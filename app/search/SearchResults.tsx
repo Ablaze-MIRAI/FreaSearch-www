@@ -49,7 +49,7 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
                 index: number
               ) =>
                 apiParams.get('category') === 'images' ? (
-                  <SearchResultImageItem index={index} key={result.url} {...result} />
+                  <SearchResultImageItem key={result.url} {...result} />
                 ) : (
                   <SearchResultItem index={index} key={result.url} {...result} />
                 )
