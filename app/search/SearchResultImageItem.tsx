@@ -16,7 +16,7 @@ const SearchResultImageItem: FC<Props> = ({ url, img_src, thumbnail_src, title, 
   return (
     <Dialog>
       <DialogTrigger>
-        <div className="border rounded-lg px-5 pt-5 pb-14 hover:bg-gray-50 transition-colors grow max-w-xs">
+        <div className="border rounded-lg px-5 pt-5 pb-14 hover:bg-gray-50 transition-colors grow max-w-xs cursor-pointer">
           <div className="max-w-[260px] mx-auto">
             <div className="relative h-[140px]">
               <Image
