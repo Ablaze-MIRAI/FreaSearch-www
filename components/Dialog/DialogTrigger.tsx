@@ -1,11 +1,13 @@
 'use client';
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 
-interface Props extends DialogPrimitive.DialogTriggerProps {}
+interface Props {
+  children: ReactNode;
+}
 
-const DialogTrigger: FC<Props> = ({ children, ...props }) => {
+const DialogTrigger: FC<Props> = ({ children }) => {
   return <DialogPrimitive.Trigger asChild>{children}</DialogPrimitive.Trigger>;
 };
 
