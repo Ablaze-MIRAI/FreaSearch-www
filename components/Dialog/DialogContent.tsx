@@ -18,9 +18,9 @@ const DialogContent: FC<Props> = ({ title, children, ...props }) => {
           'rounded-lg shadow-md'
         )}
       >
+        <DialogPrimitive.Title>{title}</DialogPrimitive.Title>
         <DialogPrimitive.Close />
         <DialogPrimitive.Description>{children}</DialogPrimitive.Description>
-        <DialogPrimitive.Title>{title}</DialogPrimitive.Title>
       </DialogPrimitive.Content>
     </DialogPrimitive.Portal>
   );
