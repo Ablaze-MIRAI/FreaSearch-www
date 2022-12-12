@@ -5,14 +5,14 @@ import { FC } from 'react';
 
 interface Props {
   url: string;
-  image_src: string;
+  img_src: string;
   thumbnail_src: string;
   title: string;
   content: string;
   engine: string;
 }
 
-const SearchResultImageItem: FC<Props> = ({ url, image_src, thumbnail_src, title, engine }) => {
+const SearchResultImageItem: FC<Props> = ({ url, img_src, thumbnail_src, title, engine }) => {
   return (
     <Dialog>
       <DialogTrigger>
@@ -38,7 +38,9 @@ const SearchResultImageItem: FC<Props> = ({ url, image_src, thumbnail_src, title
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent title={title}>Hello</DialogContent>
+      <DialogContent title={title}>
+        <Image src={img_src} alt={title} height={300} width={300} />
+      </DialogContent>
     </Dialog>
   );
 };
