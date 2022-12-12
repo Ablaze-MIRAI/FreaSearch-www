@@ -1,12 +1,12 @@
 'use client';
 
-import * as RadixDialog from '@radix-ui/react-dialog';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { FC } from 'react';
 
-interface Props extends RadixDialog.DialogProps {}
+interface Props extends DialogPrimitive.DialogProps {}
 
 const Dialog: FC<Props> = ({ children, ...props }) => {
-  return <RadixDialog.Root {...props}>{children}</RadixDialog.Root>;
+  return <DialogPrimitive.Root {...props}>{children}</DialogPrimitive.Root>;
 };
 
 export default Dialog;
