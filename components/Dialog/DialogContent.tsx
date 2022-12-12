@@ -14,7 +14,7 @@ const DialogContent: FC<Props> = ({ title, children, ...props }) => {
       <RadixDialog.Overlay className="absolute inset-0 backdrop-blur-sm" />
       <RadixDialog.Content
         className={classNames(
-          'bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-5',
+          'bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6',
           'rounded-lg shadow-md'
         )}
       >
