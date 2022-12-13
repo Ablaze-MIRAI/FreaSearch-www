@@ -60,10 +60,12 @@ const SearchResultImageItem: FC<Props> = ({
           <div>エンジン: {engine}</div>
         </div>
         <div className="flex flex-row-reverse mt-7">
-          <Button>
-            サイトにアクセスする
-            <IconExternalLink size={16} className="ml-1" />
-          </Button>
+          <Link href={url} legacyBehavior>
+            <Button as="a">
+              サイトにアクセスする
+              <IconExternalLink size={16} className="ml-1" />
+            </Button>
+          </Link>
         </div>
       </DialogContent>
     </Dialog>

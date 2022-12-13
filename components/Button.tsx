@@ -3,7 +3,6 @@ import { FC } from 'react';
 import classNames from 'classnames';
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  isLink?: boolean;
   link?: string;
   children: React.ReactNode;
   className?: string;
