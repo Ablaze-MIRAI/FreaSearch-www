@@ -19,7 +19,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const buttonClassName = classNames(
-      'flex items-center justify-center border border-brand hover:bg-gray-200/50 h-11 px-5 rounded-md transition',
+      'flex items-center justify-center border border-brand hover:bg-gray-200/50 h-11 px-5 rounded-md transition cursor-pointer',
       { 'border-none': props.variant === 'ghost' },
       className
     );
