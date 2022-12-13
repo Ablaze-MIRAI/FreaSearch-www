@@ -38,7 +38,7 @@ const SearchResultImageItem: FC<Props> = ({ url, img_src, thumbnail_src, title, 
           </div>
         </div>
       </DialogTrigger>
-      <DialogContent title={title}>
+      <DialogContent title={title} className="w-[300px] box-content">
         <Image src={img_src} alt={title} height={300} width={300} />
       </DialogContent>
     </Dialog>
