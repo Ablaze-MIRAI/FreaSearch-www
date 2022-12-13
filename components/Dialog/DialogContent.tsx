@@ -17,14 +17,14 @@ const DialogContent: FC<Props> = ({ title, className, children, ...props }) => {
       <DialogPrimitive.Overlay className="absolute inset-0 backdrop-blur-sm" />
       <DialogPrimitive.Content
         className={classNames(
-          'bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-6',
+          'bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-10',
           'rounded-lg shadow-md',
           className
         )}
       >
-        <DialogPrimitive.Title>{title}</DialogPrimitive.Title>
+        <DialogPrimitive.Title className="font-bold pb-2">{title}</DialogPrimitive.Title>
         <DialogPrimitive.Close asChild>
-          <IconButton className="absolute top-3 right-3">
+          <IconButton className="absolute top-2 right-2">
             <IconX size={20} />
           </IconButton>
         </DialogPrimitive.Close>
