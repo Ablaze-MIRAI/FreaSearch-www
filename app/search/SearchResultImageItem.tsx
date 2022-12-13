@@ -11,10 +11,18 @@ interface Props {
   thumbnail_src: string;
   title: string;
   content: string;
+  source: string;
   engine: string;
 }
 
-const SearchResultImageItem: FC<Props> = ({ url, img_src, thumbnail_src, title, engine }) => {
+const SearchResultImageItem: FC<Props> = ({
+  url,
+  img_src,
+  thumbnail_src,
+  title,
+  source,
+  engine,
+}) => {
   return (
     <Dialog>
       <DialogTrigger>
@@ -46,7 +54,7 @@ const SearchResultImageItem: FC<Props> = ({ url, img_src, thumbnail_src, title, 
           <div>{url}</div>
         </div>
         <div className="text-xs">
-          <div>ソース: {engine}</div>
+          <div>ソース: {source}</div>
           <div>エンジン: {engine}</div>
         </div>
         <div className="flex flex-row-reverse mt-7">
