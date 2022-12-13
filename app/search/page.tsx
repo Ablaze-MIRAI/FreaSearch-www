@@ -6,7 +6,7 @@ export default function SearchPage({ searchParams }: { searchParams: any }) {
   return (
     <Suspense
       fallback={
-        <div className="flex justify-start mt-5">
+        <div className="flex justify-start mt-5 mx-28">
           <Loader className="mx-3" />
           読み込み中...
         </div>
