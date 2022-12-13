@@ -22,7 +22,9 @@ const DialogContent: FC<Props> = ({ title, className, children, ...props }) => {
           className
         )}
       >
-        <DialogPrimitive.Title className="font-bold pb-2">{title}</DialogPrimitive.Title>
+        <DialogPrimitive.Title className="font-bold pb-2 whitespace-nowrap overflow-hidden text-ellipsis">
+          {title}
+        </DialogPrimitive.Title>
         <DialogPrimitive.Close asChild>
           <IconButton className="absolute top-2 right-2">
             <IconX size={20} />
