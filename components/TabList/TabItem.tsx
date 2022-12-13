@@ -6,7 +6,7 @@ export interface TabItemProps {
   href: string;
   isSelected: boolean;
   children: React.ReactNode;
-  className: string;
+  className?: string;
 }
 
 const TabItem: React.FC<TabItemProps> = ({ href, isSelected, className, children }) => {
