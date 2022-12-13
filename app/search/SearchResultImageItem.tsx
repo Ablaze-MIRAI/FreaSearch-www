@@ -1,4 +1,4 @@
-import { IconExternalLink } from '@tabler/icons';
+import { IconArrowUpRight, IconExternalLink } from '@tabler/icons';
 import Button from 'components/Button';
 import { Dialog, DialogContent, DialogTrigger } from 'components/Dialog';
 import Image from 'next/image';
@@ -63,7 +63,7 @@ const SearchResultImageItem: FC<Props> = ({
           <Link href={url} legacyBehavior>
             <Button as="a">
               サイトにアクセスする
-              <IconExternalLink size={16} className="ml-1" />
+              <IconArrowUpRight size={16} className="ml-1" />
             </Button>
           </Link>
         </div>
