@@ -1,3 +1,5 @@
+import { IconExternalLink } from '@tabler/icons';
+import Button from 'components/Button';
 import { Dialog, DialogContent, DialogTrigger } from 'components/Dialog';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -39,7 +41,20 @@ const SearchResultImageItem: FC<Props> = ({ url, img_src, thumbnail_src, title, 
         </div>
       </DialogTrigger>
       <DialogContent title={title} className="w-[300px] box-content">
-        <Image src={img_src} alt={title} height={300} width={300} />
+        <Image src={img_src} alt={title} height={300} width={300} className="mb-3" />
+        <div className="text-gray-400 text-xs mb-3 mt-5 break-all">
+          <div>{url}</div>
+        </div>
+        <div className="text-xs">
+          <div>ソース: {engine}</div>
+          <div>エンジン: {engine}</div>
+        </div>
+        <div className="flex flex-row-reverse mt-7">
+          <Button>
+            サイトにアクセスする
+            <IconExternalLink size={16} className="ml-1" />
+          </Button>
+        </div>
       </DialogContent>
     </Dialog>
   );
