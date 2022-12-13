@@ -23,6 +23,8 @@ const SearchResultImageItem: FC<Props> = ({
   source,
   engine,
 }) => {
+  const imageUrl = new URL(img_src).protocol === 'http:' ? thumbnail_src : img_src;
+
   return (
     <Dialog>
       <DialogTrigger>
@@ -49,7 +51,7 @@ const SearchResultImageItem: FC<Props> = ({
         </div>
       </DialogTrigger>
       <DialogContent title={title} className="w-[300px] box-content">
-        <Image src={img_src} alt={title} height={300} width={300} className="mb-3" />
+        <Image src={imageUrl} alt={title} height={300} width={300} className="mb-3" />
         <div className="text-gray-400 text-xs mb-3 mt-5 break-all">
           <div>{url}</div>
         </div>
