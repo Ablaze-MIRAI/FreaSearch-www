@@ -29,7 +29,7 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
       placeholder="検索する..."
       leftItem={<IconSearch className="ml-5" />}
       rightItem={
-        <IconButton className="h-full w-16 rounded-none rounded-r-full" onClick={handleSearch}>
+        <IconButton className="!h-full w-16 rounded-none rounded-r-full" onClick={handleSearch}>
           <IconArrowRight />
         </IconButton>
       }
