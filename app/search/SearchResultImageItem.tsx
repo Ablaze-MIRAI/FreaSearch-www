@@ -56,13 +56,11 @@ const SearchResultImageItem: FC<Props> = ({
       <DialogContent title={title} className="w-[300px] box-content">
         <div className="relative">
           <Image src={imageUrl} alt={title} height={300} width={300} className="mb-3" />
-          <span className="absolute bottom-2 left-2">
+          <span className="absolute bottom-2 left-2 bg-white/90 rounded-md font-mono px-3 py-1 shadow-sm">
             {imgSizeW} x {imgSizeH}
           </span>
         </div>
-        <div className="text-gray-400 text-xs mb-3 mt-5 break-all">
-          <div>{url}</div>
-        </div>
+        <div className="text-gray-400 text-xs mb-3 mt-5 break-all">{url}</div>
         <div className="text-xs">
           <div>ソース: {source}</div>
           <div>エンジン: {engine}</div>
