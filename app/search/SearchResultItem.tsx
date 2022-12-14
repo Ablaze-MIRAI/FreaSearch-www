@@ -46,12 +46,12 @@ const SearchResultItem: FC<Props> = ({
           className="object-cover w-[100px] h-[75px] rounded-sm mr-5"
         />
       )}
-      <div className="flex-col">
-        <a href={url} className="text-blue-700">
+      <div className="flex flex-col flex-grow min-w-0">
+        <a href={url} className="text-blue-700 whitespace-nowrap overflow-hidden text-ellipsis">
           {title}
         </a>
-        <span className="text-xs mb-2 overflow-hidden text-ellipsis">{url}</span>
-        <span className="text-gray-600 text-xs">{content}</span>
+        <div className="text-xs mb-2 whitespace-nowrap overflow-hidden text-ellipsis">{url}</div>
+        <div className="text-gray-600 text-xs">{content}</div>
         <div className="flex text-xs text-gray-400 mt-1 flex-row-reverse">{engine}</div>
       </div>
     </div>
