@@ -12,6 +12,7 @@ interface Props {
   title: string;
   content: string;
   source: string;
+  img_format: string;
   engine: string;
 }
 
@@ -21,9 +22,11 @@ const SearchResultImageItem: FC<Props> = ({
   thumbnail_src,
   title,
   source,
+  img_format,
   engine,
 }) => {
   const imageUrl = new URL(img_src).protocol === 'http:' ? thumbnail_src : img_src;
+  const [imgSizeW, imgSizeH] = img_format.match(/(\d*)\s.\s(\d*)/)?.slice(1) || [0, 0];
 
   return (
     <Dialog>
@@ -51,7 +54,12 @@ const SearchResultImageItem: FC<Props> = ({
         </div>
       </DialogTrigger>
       <DialogContent title={title} className="w-[300px] box-content">
-        <Image src={imageUrl} alt={title} height={300} width={300} className="mb-3" />
+        <div className="relative">
+          <Image src={imageUrl} alt={title} height={300} width={300} className="mb-3" />
+          <span className="absolute bottom-2 left-2">
+            {imgSizeW} x {imgSizeH}
+          </span>
+        </div>
         <div className="text-gray-400 text-xs mb-3 mt-5 break-all">
           <div>{url}</div>
         </div>
