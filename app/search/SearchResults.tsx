@@ -47,6 +47,8 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
                   content: string;
                   source: string;
                   engine: string;
+                  thumbnail: string;
+                  category: string;
                 },
                 index: number
               ) =>
