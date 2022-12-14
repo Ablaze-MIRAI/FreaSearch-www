@@ -67,9 +67,8 @@ const SearchResultImageItem: FC<Props> = ({
         </div>
         <div className="flex flex-row-reverse mt-7">
           <Link href={url} legacyBehavior>
-            <Button as="a">
+            <Button as="a" rightIcon={IconArrowUpRight}>
               サイトにアクセスする
-              <IconArrowUpRight size={16} className="ml-1" />
             </Button>
           </Link>
         </div>

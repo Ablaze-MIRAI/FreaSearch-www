@@ -1,6 +1,7 @@
 import { forwardRef, useEffect } from 'react';
 import { FC } from 'react';
 import classNames from 'classnames';
+import { TablerIcon } from '@tabler/icons';
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   link?: string;
@@ -8,14 +9,29 @@ export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   className?: string;
   as?: keyof JSX.IntrinsicElements;
   variant?: 'outline' | 'ghost';
+  leftIcon?: TablerIcon;
+  rightIcon?: TablerIcon;
   ref?: any;
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ as, children, className, ...props }: ButtonProps, ref) => {
+  ({ leftIcon, rightIcon, as, children, className, ...props }: ButtonProps, ref) => {
     const CustomElement = ({ ...props }) => {
       const Tag = as as keyof JSX.IntrinsicElements;
       return <Tag {...props} />;
+    };
+
+    const ChildrenWithIcons = () => {
+      const LeftIconComponent = leftIcon;
+      const RightIconComponent = rightIcon;
+
+      return (
+        <>
+          {LeftIconComponent && <LeftIconComponent size={16} className="mr-1" />}
+          {children}
+          {RightIconComponent && <RightIconComponent size={16} className="ml-1" />}
+        </>
+      );
     };
 
     const buttonClassName = classNames(
@@ -27,13 +43,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     if (as) {
       return (
         <CustomElement className={buttonClassName} {...props}>
-          {children}
+          <ChildrenWithIcons />
         </CustomElement>
       );
     } else {
       return (
         <button className={buttonClassName} ref={ref} {...props}>
-          {children}
+          <ChildrenWithIcons />
         </button>
       );
     }
