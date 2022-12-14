@@ -19,9 +19,9 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
   const data = await res.json();
   const isImageTab = apiParams.get('category') === 'images';
   const prevPageParams = new URLSearchParams(apiParams);
-  prevPageParams.set('pageno', apiParams.get('pageno') || '1');
+  prevPageParams.set('pageno', (parseInt(apiParams.get('pageno') || '0') - 1).toString());
   const nextPageParams = new URLSearchParams(apiParams);
-  nextPageParams.set('pageno', apiParams.get('pageno') || '1');
+  nextPageParams.set('pageno', (parseInt(apiParams.get('pageno') || '2') + 1).toString());
 
   if (res.ok) {
     return (
@@ -67,12 +67,14 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
                 )
             )}
             {isImageTab || (
-              <div className="flex justify-between">
-                <Link href={`/search?${prevPageParams.toString()}`} legacyBehavior>
-                  <Button as="a" leftIcon={IconArrowLeft}>
-                    前へ
-                  </Button>
-                </Link>
+              <div className="flex flex-row-reverse justify-between">
+                {parseInt(prevPageParams.get('pageno') as string) > 0 && (
+                  <Link href={`/search?${prevPageParams.toString()}`} legacyBehavior>
+                    <Button as="a" leftIcon={IconArrowLeft}>
+                      前へ
+                    </Button>
+                  </Link>
+                )}
                 <Link href={`/search?${nextPageParams.toString()}`} legacyBehavior>
                   <Button as="a" rightIcon={IconArrowRight}>
                     次へ
