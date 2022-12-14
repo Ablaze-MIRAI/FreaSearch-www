@@ -2,6 +2,9 @@ import { FC } from 'react';
 import SearchResultItem from './SearchResultItem';
 import SearchResultImageItem from './SearchResultImageItem';
 import classNames from 'classnames';
+import Button from 'components/Button';
+import Link from 'next/link';
+import { IconArrowLeft, IconArrowRight } from '@tabler/icons';
 
 interface Props {
   searchParams: URLSearchParams;
@@ -11,10 +14,14 @@ interface Props {
 const SearchResults: FC<Props> = async ({ searchParams }) => {
   const API_URL = process.env.API_URL;
   const apiParams = new URLSearchParams(searchParams);
-  apiParams.set('pageno', apiParams.get('page') || '1');
+  apiParams.set('pageno', apiParams.get('pageno') || '1');
   const res = await fetch(`${API_URL}/search?${apiParams.toString()}`);
   const data = await res.json();
   const isImageTab = apiParams.get('category') === 'images';
+  const prevPageParams = new URLSearchParams(apiParams);
+  prevPageParams.set('pageno', apiParams.get('pageno') || '1');
+  const nextPageParams = new URLSearchParams(apiParams);
+  nextPageParams.set('pageno', apiParams.get('pageno') || '1');
 
   if (res.ok) {
     return (
@@ -58,6 +65,22 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
                 ) : (
                   <SearchResultItem index={index} key={result.url} {...result} />
                 )
+            )}
+            {isImageTab || (
+              <div className="flex justify-between">
+                <Link href={`/search?${prevPageParams.toString()}`} legacyBehavior>
+                  <Button as="a">
+                    <IconArrowLeft size={16} className="mr-1" />
+                    前へ
+                  </Button>
+                </Link>
+                <Link href={`/search?${nextPageParams.toString()}`} legacyBehavior>
+                  <Button as="a">
+                    次へ
+                    <IconArrowRight size={16} className="ml-1" />
+                  </Button>
+                </Link>
+              </div>
             )}
           </div>
         )}
