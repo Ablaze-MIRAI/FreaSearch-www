@@ -26,9 +26,6 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
   if (res.ok) {
     return (
       <div className={`py-7 ${isImageTab ? 'px-5' : 'px-28'}`}>
-        {isImageTab || (
-          <div className="text-gray-600 text-sm">検索結果: {data.number_of_results}件</div>
-        )}
         {data.results.length === 0 ? (
           <div className="text-gray-600 mt-2">
             <p>{apiParams.get('q')}と一致する検索結果が見つかりませんでした...。</p>
