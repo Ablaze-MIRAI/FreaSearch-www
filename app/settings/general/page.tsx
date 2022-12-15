@@ -11,13 +11,14 @@ const GeneralSettingsPage: NextPage = () => {
 
   return (
     <div>
-      <SettingItem label="言語">
+      <SettingItem label="検索言語">
         <Select
           value={settings.language}
           onValueChange={(language: 'ja' | 'en') => settings.setLanguage(language)}
         >
-          <SelectItem value="ja">日本語</SelectItem>
-          <SelectItem value="en">英語</SelectItem>
+          <SelectItem value="ja-JP">🇯🇵 日本語</SelectItem>
+          <SelectItem value="en">🇺🇸 English</SelectItem>
+          <SelectItem value="zh">🇨🇳 中文</SelectItem>
         </Select>
       </SettingItem>
       <SettingItem label="検索の最適化">

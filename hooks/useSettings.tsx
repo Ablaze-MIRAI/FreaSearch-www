@@ -6,11 +6,13 @@ import { CookieSetOptions } from 'universal-cookie';
 
 const SettingsContext = createContext<Settings>(undefined!);
 
-interface ISettings {
+export interface SettingsType {
+  language?: 'ja' | 'en';
+}
+
+interface ISettings extends SettingsType {
   setCookies: (name: 'settings', value: any, options?: CookieSetOptions) => void;
   cookieData: any;
-
-  language: 'ja' | 'en';
 
   setLanguage: (language: 'ja' | 'en') => void;
 }
