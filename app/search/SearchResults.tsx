@@ -19,9 +19,9 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
   const data = await res.json();
   const isImageTab = apiParams.get('category') === 'images';
   const prevPageParams = new URLSearchParams(apiParams);
-  prevPageParams.set('pageno', (parseInt(apiParams.get('pageno') || '0') - 1).toString());
+  prevPageParams.set('pageno', (parseInt(apiParams.get('pageno') || '1') - 1).toString());
   const nextPageParams = new URLSearchParams(apiParams);
-  nextPageParams.set('pageno', (parseInt(apiParams.get('pageno') || '2') + 1).toString());
+  nextPageParams.set('pageno', (parseInt(apiParams.get('pageno') || '1') + 1).toString());
 
   if (res.ok) {
     return (
