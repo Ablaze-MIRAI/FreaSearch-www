@@ -67,19 +67,23 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
                 )
             )}
             {isImageTab || (
-              <div className="flex flex-row-reverse justify-between">
-                {parseInt(prevPageParams.get('pageno') as string) > 0 && (
-                  <Link href={`/search?${prevPageParams.toString()}`} legacyBehavior>
-                    <Button as="a" leftIcon={IconArrowLeft}>
-                      前へ
+              <div className="flex justify-between">
+                <div>
+                  {parseInt(prevPageParams.get('pageno') as string) > 0 && (
+                    <Link href={`/search?${prevPageParams.toString()}`} legacyBehavior>
+                      <Button as="a" leftIcon={IconArrowLeft}>
+                        前へ
+                      </Button>
+                    </Link>
+                  )}
+                </div>
+                <div>
+                  <Link href={`/search?${nextPageParams.toString()}`} legacyBehavior>
+                    <Button as="a" rightIcon={IconArrowRight}>
+                      次へ
                     </Button>
                   </Link>
-                )}
-                <Link href={`/search?${nextPageParams.toString()}`} legacyBehavior>
-                  <Button as="a" rightIcon={IconArrowRight}>
-                    次へ
-                  </Button>
-                </Link>
+                </div>
               </div>
             )}
           </div>
