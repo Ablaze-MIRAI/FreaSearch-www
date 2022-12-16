@@ -65,7 +65,7 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
           })}
         </TabList>
       </div>
-      <Link href="/settings" legacyBehavior>
+      <Link href="/settings" passHref legacyBehavior>
         <IconButton as="a" className="absolute right-10">
           <IconSettings />
         </IconButton>

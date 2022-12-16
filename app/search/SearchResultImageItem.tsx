@@ -66,7 +66,7 @@ const SearchResultImageItem: FC<Props> = ({
           <div>エンジン: {engine}</div>
         </div>
         <div className="flex flex-row-reverse mt-7">
-          <Link href={url} legacyBehavior>
+          <Link href={url} passHref legacyBehavior>
             <Button as="a" rightIcon={IconArrowUpRight}>
               サイトにアクセスする
             </Button>

@@ -12,10 +12,10 @@ const Home: NextPage = () => {
     <div>
       <main className="max-w-2xl mx-auto">
         <div className="absolute top-5 right-7 flex">
-          <Link href="#" legacyBehavior>
+          <Link href="#" passHref legacyBehavior>
             <Button as="a">ダウンロード</Button>
           </Link>
-          <Link href="/settings" legacyBehavior>
+          <Link href="/settings" passHref legacyBehavior>
             <IconButton as="a" className="ml-5">
               <IconSettings />
             </IconButton>
