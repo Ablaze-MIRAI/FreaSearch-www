@@ -10,6 +10,7 @@ export interface SettingsType {
   language?: 'ja' | 'en';
   newTab?: boolean;
   shortcut?: boolean;
+  theme?: 'light' | 'dark';
 }
 
 interface ISettings extends SettingsType {
@@ -19,6 +20,7 @@ interface ISettings extends SettingsType {
   setLanguage: (language: 'ja' | 'en') => void;
   setNewTab: (newTab: boolean) => void;
   setShortcut: (newTab: boolean) => void;
+  setTheme: (newTab: 'light' | 'dark') => void;
 }
 
 class Settings implements ISettings {
@@ -27,6 +29,7 @@ class Settings implements ISettings {
   language: 'ja' | 'en' = 'ja';
   newTab: boolean = false;
   shortcut: boolean = false;
+  theme: 'light' | 'dark' = 'light';
 
   setCookies: (name: 'settings', value: any, options?: CookieSetOptions) => void;
 
@@ -55,6 +58,10 @@ class Settings implements ISettings {
 
   setShortcut(shortcut: boolean) {
     this.saveSettings('shortcut', shortcut);
+  }
+
+  setTheme(theme: 'light' | 'dark') {
+    this.saveSettings('theme', theme);
   }
 }
 
