@@ -2,7 +2,6 @@ import { forwardRef, useEffect } from 'react';
 import { FC } from 'react';
 import classNames from 'classnames';
 import { TablerIcon } from '@tabler/icons';
-import { ButtonGroup } from '@chakra-ui/react';
 
 export interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
   link?: string;
