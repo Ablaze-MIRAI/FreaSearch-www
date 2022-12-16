@@ -12,8 +12,6 @@ export default function SettingsLayout({ children }: { children: ReactNode }) {
   const settings = [
     { slug: 'general', name: 'General' },
     { slug: 'design', name: 'Design' },
-    { slug: 'privacy', name: 'Privacy' },
-    { slug: 'serachengine', name: 'Serach Engine' },
   ];
 
   return (
