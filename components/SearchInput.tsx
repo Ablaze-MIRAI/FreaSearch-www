@@ -1,11 +1,12 @@
 'use client';
 
-import { FC, useRef } from 'react';
+import { FC, useEffect, useRef } from 'react';
 import Input, { InputProps } from './Input';
 import IconButton from './IconButton';
 import { IconArrowRight, IconSearch } from '@tabler/icons';
 import { useRouter } from 'next/navigation';
 import classNames from 'classnames';
+import { useSettings } from 'hooks';
 
 export interface SearchInputParams extends InputProps {
   defaultParams?: URLSearchParams;
@@ -14,6 +15,22 @@ export interface SearchInputParams extends InputProps {
 const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props }) => {
   const router = useRouter();
   const keywordInputRef = useRef<HTMLInputElement>(null!);
+  const { shortcut } = useSettings();
+
+  useEffect(() => {
+    if (shortcut) {
+      const handleKeyDown = (e: KeyboardEvent) => {
+        if (e.key === '/') {
+          e.preventDefault();
+          keywordInputRef.current.focus();
+        }
+      };
+      window.addEventListener('keydown', handleKeyDown);
+      return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+      };
+    }
+  }, [shortcut]);
 
   const handleSearch = () => {
     const keyword = keywordInputRef.current.value;
