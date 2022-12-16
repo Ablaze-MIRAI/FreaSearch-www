@@ -27,6 +27,12 @@ const GeneralSettingsPage: NextPage = () => {
           onCheckedChange={(newTab: boolean) => settings.setNewTab(newTab)}
         />
       </SettingItem>
+      <SettingItem label={'"/"キーで検索'}>
+        <Switch
+          checked={settings.shortcut}
+          onCheckedChange={(shortcut: boolean) => settings.setShortcut(shortcut)}
+        />
+      </SettingItem>
     </div>
   );
 };
