@@ -4,18 +4,19 @@ import { FC } from 'react';
 import * as RadixSwitch from '@radix-ui/react-switch';
 import classNames from 'classnames';
 
-export interface SwitchProps {
-  value?: false;
+export interface SwitchProps extends RadixSwitch.SwitchProps {
+  className?: string;
 }
 
-const Switch: FC<SwitchProps> = ({ value }) => {
+const Switch: FC<SwitchProps> = ({ className, ...props }) => {
   return (
     <RadixSwitch.Root
-      checked={value}
       className={classNames(
         'group w-12 block h-6 p-0.5 rounded-full border-2 bg-gray-400 border-gray-300 transition',
-        'data-[state=checked]:bg-green-400 data-[state=checked]:border-green-300'
+        'data-[state=checked]:bg-green-400 data-[state=checked]:border-green-300',
+        className
       )}
+      {...props}
     >
       <RadixSwitch.Thumb
         className={classNames(

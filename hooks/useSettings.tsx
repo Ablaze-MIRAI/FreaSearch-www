@@ -8,6 +8,7 @@ const SettingsContext = createContext<Settings>(undefined!);
 
 export interface SettingsType {
   language?: 'ja' | 'en';
+  newTab?: boolean;
 }
 
 interface ISettings extends SettingsType {
@@ -15,12 +16,16 @@ interface ISettings extends SettingsType {
   cookieData: any;
 
   setLanguage: (language: 'ja' | 'en') => void;
+  setNewTab: (newTab: boolean) => void;
 }
 
 class Settings implements ISettings {
-  language: 'ja' | 'en' = 'ja';
-  setCookies: (name: 'settings', value: any, options?: CookieSetOptions) => void;
   cookieData: any;
+
+  language: 'ja' | 'en' = 'ja';
+  newTab: boolean = false;
+
+  setCookies: (name: 'settings', value: any, options?: CookieSetOptions) => void;
 
   constructor(
     settings: any,
@@ -39,6 +44,10 @@ class Settings implements ISettings {
 
   setLanguage(language: 'ja' | 'en') {
     this.saveSettings('language', language);
+  }
+
+  setNewTab(newTab: boolean) {
+    this.saveSettings('newTab', newTab);
   }
 }
 

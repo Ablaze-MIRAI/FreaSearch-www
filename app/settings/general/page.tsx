@@ -21,8 +21,11 @@ const GeneralSettingsPage: NextPage = () => {
           <SelectItem value="zh">🇨🇳 中文</SelectItem>
         </Select>
       </SettingItem>
-      <SettingItem label="検索の最適化">
-        <Switch />
+      <SettingItem label="検索結果を新しいタブで開く">
+        <Switch
+          checked={settings.newTab}
+          onCheckedChange={(newTab: boolean) => settings.setNewTab(newTab)}
+        />
       </SettingItem>
     </div>
   );
