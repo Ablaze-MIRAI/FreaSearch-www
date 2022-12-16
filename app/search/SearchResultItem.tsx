@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { FC, useEffect, useRef } from 'react';
+import { useSettings } from 'hooks';
 
 interface Props {
   url: string;
@@ -24,6 +25,7 @@ const SearchResultItem: FC<Props> = ({
 }) => {
   const delay = (index + 1) * 100;
   const SearchResultElement = useRef<HTMLDivElement>(null!);
+  const { newTab } = useSettings();
 
   useEffect(() => {
     const element = SearchResultElement.current;
@@ -47,7 +49,12 @@ const SearchResultItem: FC<Props> = ({
         />
       )}
       <div className="flex flex-col flex-grow min-w-0">
-        <a href={url} className="text-blue-700 whitespace-nowrap overflow-hidden text-ellipsis">
+        <a
+          href={url}
+          className="text-blue-700 whitespace-nowrap overflow-hidden text-ellipsis"
+          target={(newTab && '_blank') as string}
+          rel={(newTab && 'noopener noreferrer') as string}
+        >
           {title}
         </a>
         <div className="text-xs mb-2 whitespace-nowrap overflow-hidden text-ellipsis">{url}</div>

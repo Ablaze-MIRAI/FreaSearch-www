@@ -15,10 +15,10 @@ interface Props {
 // @ts-ignore
 const SearchResults: FC<Props> = async ({ searchParams }) => {
   const API_URL = process.env.API_URL;
-  const settings = JSON.parse(cookies().get('settings')?.value ?? '{}') as SettingsType;
+  const { language } = JSON.parse(cookies().get('settings')?.value ?? '{}') as SettingsType;
   const apiParams = new URLSearchParams(searchParams);
   apiParams.set('pageno', apiParams.get('pageno') || '1');
-  apiParams.set('language', settings.language || 'ja-JP');
+  apiParams.set('language', language || 'ja-JP');
   const res = await fetch(`${API_URL}/search?${apiParams.toString()}`);
   const data = await res.json();
   const isImageTab = apiParams.get('category') === 'images';
