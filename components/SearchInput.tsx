@@ -1,6 +1,6 @@
 'use client';
 
-import { createRef, FC, useRef } from 'react';
+import { FC, useRef } from 'react';
 import Input, { InputProps } from './Input';
 import IconButton from './IconButton';
 import { IconArrowRight, IconSearch } from '@tabler/icons';
