@@ -1,8 +1,6 @@
-'use client';
-
 import { createContext, useContext, ReactNode, FC } from 'react';
 import { useCookies } from 'react-cookie';
-import { CookieSetOptions } from 'universal-cookie';
+import { useTheme } from 'next-themes';
 
 const SettingsContext = createContext<Settings>(undefined!);
 
@@ -14,8 +12,9 @@ export interface SettingsType {
 }
 
 interface ISettings extends SettingsType {
-  setCookies: (name: 'settings', value: any, options?: CookieSetOptions) => void;
   cookieData: any;
+  setCookies: any;
+  onThemeChange: any;
 
   setLanguage: (language: 'ja' | 'en') => void;
   setNewTab: (newTab: boolean) => void;
@@ -25,21 +24,19 @@ interface ISettings extends SettingsType {
 
 class Settings implements ISettings {
   cookieData: any;
+  setCookies: any;
+  onThemeChange: any;
 
   language: 'ja' | 'en' = 'ja';
   newTab: boolean = false;
   shortcut: boolean = false;
   theme: 'light' | 'dark' = 'light';
 
-  setCookies: (name: 'settings', value: any, options?: CookieSetOptions) => void;
-
-  constructor(
-    settings: any,
-    setCookies: (name: 'settings', value: any, options?: CookieSetOptions) => void
-  ) {
+  constructor(settings: any, setCookies: any, onThemeChange: any) {
     Object.assign(this, settings);
     this.setCookies = setCookies;
     this.cookieData = settings;
+    this.onThemeChange = onThemeChange;
   }
 
   async saveSettings(key: keyof Settings, value: any) {
@@ -62,6 +59,7 @@ class Settings implements ISettings {
 
   setTheme(theme: 'light' | 'dark') {
     this.saveSettings('theme', theme);
+    this.onThemeChange(theme);
   }
 }
 
@@ -72,8 +70,11 @@ interface Props {
 export const SettingsProvider: FC<Props> = ({ children }) => {
   const [cookies, setCookie] = useCookies(['settings']);
   const settingData = cookies.settings || {};
+  const { setTheme } = useTheme();
 
-  const settings = new Settings(settingData, setCookie);
+  const settings = new Settings(settingData, setCookie, (theme: 'light' | 'dark') => {
+    setTheme(theme);
+  });
   return <SettingsContext.Provider value={settings}>{children}</SettingsContext.Provider>;
 };
 
@@ -87,7 +88,7 @@ export function useSettings() {
   return settings;
 }
 interface Props {
-  children: React.ReactNode;
+  children: ReactNode;
 }
 
 export default SettingsProvider;
