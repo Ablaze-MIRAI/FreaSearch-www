@@ -9,12 +9,12 @@ Standalone web client for Frea Search
 
 ## Getting Started
 
-これらがインストールされている必要があります:
+ます最初にこれらがインストールされていることを確認しましょう:
 
 - node: version 16
 - npm
 
-次に、環境変数を設定します。
+このレポジトリをクローンしたら、
 `.env.local`ファイルを作成し、API サーバーの URL を貼り付けます。
 例:
 
