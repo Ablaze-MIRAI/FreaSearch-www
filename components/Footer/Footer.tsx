@@ -15,9 +15,9 @@ const Footer: FC<Props> = ({ className }) => {
         className
       )}
     >
-      <FooterItem label="Frea Searchについて" link="#" />
-      <FooterItem label="寄付" link="#" />
-      <FooterItem label="プライバシーポリシー" link="#" />
+      <FooterItem label="ソースコード" link="https://github.com/Ablaze-MIRAI/FreaSearch-www" />
+      <FooterItem label="寄付" link="https://donate.freasearch.org/" />
+      <FooterItem label="プライバシーポリシー" link="https://nexryai.online/docs/privacy/" />
       <div className="flex-auto flex justify-end">© 2022 Frea Search, Ablaze</div>
     </footer>
   );
