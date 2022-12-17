@@ -14,8 +14,13 @@ Standalone web client for Frea Search
 - node: version 16
 - npm
 
-このレポジトリをクローンしたら、
-`.env.local`ファイルを作成し、API サーバーの URL を貼り付けます。
+このレポジトリをクローンしたら、このプロジェクトに使われているパッケージをインストールします。
+
+```
+npm i
+```
+
+インストールが終わったら、`.env.local`ファイルを作成し、API サーバーの URL を貼り付けます。
 例:
 
 ```
