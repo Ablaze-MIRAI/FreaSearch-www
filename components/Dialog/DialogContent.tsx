@@ -17,7 +17,7 @@ const DialogContent: FC<Props> = ({ title, className, children, ...props }) => {
       <DialogPrimitive.Overlay className="absolute inset-0 backdrop-blur-sm" />
       <DialogPrimitive.Content
         className={classNames(
-          'bg-white fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-10',
+          'bg-white dark:bg-neutral-900 fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-10',
           'rounded-lg shadow-md',
           className
         )}

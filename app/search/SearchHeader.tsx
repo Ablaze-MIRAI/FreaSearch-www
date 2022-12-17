@@ -7,6 +7,7 @@ import {
   IconVideo,
   TablerIcon,
 } from '@tabler/icons';
+import classNames from 'classnames';
 import IconButton from 'components/IconButton';
 import { LogoIcon } from 'components/Logo';
 import SearchInput from 'components/SearchInput';
@@ -28,7 +29,12 @@ const categories = [
 
 const SearchHeader: FC<Props> = ({ searchParams }) => {
   return (
-    <div className="relative flex flex-col px-28 pt-7 pb-1 bg-white shadow-md">
+    <div
+      className={classNames(
+        'relative flex flex-col px-28 pt-7 pb-1 bg-white dark:bg-neutral-900 shadow-md dark:shadow-none',
+        'dark:border-b-2 dark:border-neutral-800'
+      )}
+    >
       <LogoIcon className="absolute left-10 h-9 mt-2" />
       <div className="w-[500px]">
         <SearchInput
@@ -46,7 +52,9 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
               return (
                 <Icon
                   size={16}
-                  className={(isSelected ? 'text-brand' : 'text-gray-700') as string}
+                  className={
+                    (isSelected ? 'text-brand' : 'text-gray-700 dark:text-neutral-300') as string
+                  }
                 />
               );
             };

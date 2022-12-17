@@ -11,8 +11,8 @@ const notoSansJP = Noto_Sans_JP({ weight: '400', variable: '--font-noto-sans-jp'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={classNames(inter.variable, notoSansJP.variable)}>
-      <body>
+    <html className={classNames(inter.variable, notoSansJP.variable)}>
+      <body className="dark:bg-neutral-900">
         <ThemeProvider attribute="class" defaultTheme="light">
           <SettingsProvider>{children}</SettingsProvider>
         </ThemeProvider>

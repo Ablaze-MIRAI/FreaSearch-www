@@ -51,15 +51,17 @@ const SearchResultItem: FC<Props> = ({
       <div className="flex flex-col flex-grow min-w-0">
         <a
           href={url}
-          className="text-blue-700 whitespace-nowrap overflow-hidden text-ellipsis"
+          className="text-blue-700 dark:text-blue-500 whitespace-nowrap overflow-hidden text-ellipsis"
           target={(newTab && '_blank') as string}
           rel={(newTab && 'noopener noreferrer') as string}
         >
           {title}
         </a>
         <div className="text-xs mb-2 whitespace-nowrap overflow-hidden text-ellipsis">{url}</div>
-        <div className="text-gray-600 text-xs">{content}</div>
-        <div className="flex text-xs text-gray-400 mt-1 flex-row-reverse">{engine}</div>
+        <div className="text-gray-600 dark:text-neutral-300 text-xs">{content}</div>
+        <div className="flex text-xs text-gray-400 dark:text-neutral-500 mt-1 flex-row-reverse">
+          {engine}
+        </div>
       </div>
     </div>
   );

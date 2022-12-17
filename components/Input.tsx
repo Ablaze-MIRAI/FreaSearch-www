@@ -16,6 +16,7 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           type="text"
           className={classNames(
             'border-none outline-none bg-gray-100 h-12 px-5 rounded-full w-full',
+            'dark:bg-neutral-800 dark:placeholder:text-neutral-500',
             leftItem && 'pl-14',
             rightItem && 'pr-14'
           )}
@@ -23,12 +24,12 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
           {...props}
         />
         {leftItem && (
-          <div className="absolute left-0 text-gray-400 top-0 h-full flex items-center">
+          <div className="absolute left-0 text-gray-400 dark:text-neutral-500 top-0 h-full flex items-center">
             {leftItem}
           </div>
         )}
         {rightItem && (
-          <div className="absolute right-0 text-gray-400 top-0 h-full flex items-center">
+          <div className="absolute right-0 text-gray-400 dark:text-neutral-500 top-0 h-full flex items-center">
             {rightItem}
           </div>
         )}

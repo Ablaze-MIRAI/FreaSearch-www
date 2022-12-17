@@ -38,8 +38,9 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
         ) : (
           <div
             className={classNames(
-              'flex mt-5 bg-white rounded-xl px-7',
+              'flex mt-5 bg-white dark:bg-neutral-900 rounded-xl px-7',
               'shadow-[0_3px_25px_-2px_rgba(0,0,0,0.1),0_5px_10px_-6px_rgba(0,0,0,0.1)]',
+              'dark:shadow-none dark:border-2 border-neutral-800',
               apiParams.get('category') === 'images'
                 ? 'flex-wrap gap-x-3 gap-y-5 py-10'
                 : ' w-[700px] flex-col space-y-3 py-5'

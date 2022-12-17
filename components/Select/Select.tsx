@@ -12,7 +12,7 @@ const Select: FC<SelectPrimitive.SelectProps> = ({ children, ...props }) => {
         <IconChevronDown size={16} />
       </SelectPrimitive.Trigger>
       <SelectPrimitive.Portal>
-        <SelectPrimitive.Content className="bg-white shadow-md p-2 rounded-md">
+        <SelectPrimitive.Content className="bg-white dark:bg-neutral-800 shadow-md dark:shadow-md p-2 rounded-md">
           <SelectPrimitive.Viewport>{children}</SelectPrimitive.Viewport>
         </SelectPrimitive.Content>
       </SelectPrimitive.Portal>
