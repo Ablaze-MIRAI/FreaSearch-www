@@ -35,7 +35,9 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
         'dark:border-b-2 dark:border-neutral-800'
       )}
     >
-      <LogoIcon className="absolute left-10 h-9 mt-2" />
+      <Link href="/">
+        <LogoIcon className="absolute left-10 h-9 mt-2" />
+      </Link>
       <div className="w-[500px]">
         <SearchInput
           defaultValue={searchParams.get('q') as string}
