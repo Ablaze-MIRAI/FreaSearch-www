@@ -12,7 +12,7 @@ Standalone web client for Frea Search
 これらがインストールされている必要があります:
 
 - node: version 16
-- npm (Node Package Manager): used to maintain and update packages required to build the site
+- npm
 
 次に、環境変数を設定します。
 `.env.local`ファイルを作成し、API サーバーの URL を貼り付けます。
