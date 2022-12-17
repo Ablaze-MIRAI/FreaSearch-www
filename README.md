@@ -2,6 +2,11 @@
 
 Standalone web client for Frea Search
 
+# メモ
+
+このプロジェクトは Next 13 を利用しています。
+詳しい使い方については[https://beta.nextjs.org/](https://beta.nextjs.org/)を確認してください。
+
 ## Getting Started
 
 これらがインストールされている必要があります:
