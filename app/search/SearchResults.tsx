@@ -46,7 +46,7 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
             )}
           >
             {data.answers.length > 0 && (
-              <div className="border-2 dark:border-neutral-800 p-5 flex flex-col rounded space-y-2 text-sm">
+              <div className="border dark:border-2 dark:border-neutral-800 p-5 flex flex-col rounded space-y-2 text-sm">
                 <div className="font-bold">{apiParams.get('q')}</div>
                 <div>{data.answers[0].answer.answer}</div>
               </div>
