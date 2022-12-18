@@ -1,9 +1,9 @@
 'use client';
 
-import { FC, useEffect, useRef } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
 import Input, { InputProps } from './Input';
 import IconButton from './IconButton';
-import { IconArrowRight, IconSearch } from '@tabler/icons';
+import { IconArrowRight, IconLoader2, IconSearch } from '@tabler/icons';
 import { useRouter } from 'next/navigation';
 import classNames from 'classnames';
 import { useSettings } from 'hooks';
@@ -16,6 +16,7 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
   const router = useRouter();
   const keywordInputRef = useRef<HTMLInputElement>(null!);
   const { shortcut } = useSettings();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     if (shortcut) {
@@ -35,6 +36,7 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
   const handleSearch = () => {
     const keyword = keywordInputRef.current.value;
     if (keyword !== '') {
+      setIsLoading(true);
       const newParams = new URLSearchParams(defaultParams);
       newParams.set('q', keyword);
       router.replace(`/search?${newParams?.toString()}`);
@@ -53,7 +55,7 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
         leftItem={<IconSearch className="ml-5" />}
         rightItem={
           <IconButton className="!h-full w-16 rounded-none rounded-r-full" onClick={handleSearch}>
-            <IconArrowRight />
+            {isLoading ? <IconLoader2 className="animate-spin" /> : <IconArrowRight />}
           </IconButton>
         }
         className={classNames('outline-none transition', className)}
