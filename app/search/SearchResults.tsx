@@ -22,11 +22,8 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
   const res = await fetch(`${API_URL}/search?${apiParams.toString()}`);
   if (!res.ok) {
     return (
-      <div className="py-7">
-        <div className="text-gray-600 text-sm">検索結果: 0件</div>
-        <div className="text-gray-600 mt-2">
-          <p>データの取得に失敗しました。少し待ってからやり直してください。</p>
-        </div>
+      <div className="py-7 px-2 md:px-28 text-gray-600 mt-2">
+        <p>データの取得に失敗しました。少し待ってからやり直してください。</p>
       </div>
     );
   }
