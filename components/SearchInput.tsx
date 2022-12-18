@@ -42,23 +42,25 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
   };
 
   return (
-    <Input
-      placeholder="検索する..."
-      leftItem={<IconSearch className="ml-5" />}
-      rightItem={
-        <IconButton className="!h-full w-16 rounded-none rounded-r-full" onClick={handleSearch}>
-          <IconArrowRight />
-        </IconButton>
-      }
-      onKeyUpCapture={(e) => {
-        if (e.key === 'Enter') {
-          handleSearch();
-        }
+    <form
+      onSubmitCapture={(e) => {
+        e.preventDefault();
+        handleSearch();
       }}
-      className={classNames('outline-none transition', className)}
-      ref={keywordInputRef}
-      {...props}
-    />
+    >
+      <Input
+        placeholder="検索する..."
+        leftItem={<IconSearch className="ml-5" />}
+        rightItem={
+          <IconButton className="!h-full w-16 rounded-none rounded-r-full" onClick={handleSearch}>
+            <IconArrowRight />
+          </IconButton>
+        }
+        className={classNames('outline-none transition', className)}
+        ref={keywordInputRef}
+        {...props}
+      />
+    </form>
   );
 };
 
