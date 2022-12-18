@@ -10,7 +10,7 @@ import Link from 'next/link';
 const Home: NextPage = () => {
   return (
     <div>
-      <main className="max-w-2xl mx-auto">
+      <main className="max-w-2xl mx-auto px-3 md:px-0">
         <div className="absolute top-5 right-7 flex">
           <Link href="#" passHref legacyBehavior>
             <Button as="a">ダウンロード</Button>
