@@ -5,7 +5,7 @@ import { useTheme } from 'next-themes';
 const SettingsContext = createContext<Settings>(undefined!);
 
 export interface SettingsType {
-  language?: 'ja' | 'en';
+  language?: 'ja-JP' | 'en';
   newTab?: boolean;
   shortcut?: boolean;
   theme?: 'light' | 'dark';
@@ -16,7 +16,7 @@ interface ISettings extends SettingsType {
   setCookies: any;
   onThemeChange: any;
 
-  setLanguage: (language: 'ja' | 'en') => void;
+  setLanguage: (language: 'ja-JP' | 'en') => void;
   setNewTab: (newTab: boolean) => void;
   setShortcut: (newTab: boolean) => void;
   setTheme: (newTab: 'light' | 'dark') => void;
@@ -27,7 +27,7 @@ class Settings implements ISettings {
   setCookies: any;
   onThemeChange: any;
 
-  language: 'ja' | 'en' = 'ja';
+  language: 'ja-JP' | 'en' = 'ja-JP';
   newTab: boolean = false;
   shortcut: boolean = false;
   theme: 'light' | 'dark' = 'light';
@@ -45,7 +45,7 @@ class Settings implements ISettings {
     this.setCookies('settings', this.cookieData, { path: '/' });
   }
 
-  setLanguage(language: 'ja' | 'en') {
+  setLanguage(language: 'ja-JP' | 'en') {
     this.saveSettings('language', language);
   }
 
@@ -75,6 +75,7 @@ export const SettingsProvider: FC<Props> = ({ children }) => {
   const settings = new Settings(settingData, setCookie, (theme: 'light' | 'dark') => {
     setTheme(theme);
   });
+
   return <SettingsContext.Provider value={settings}>{children}</SettingsContext.Provider>;
 };
 
