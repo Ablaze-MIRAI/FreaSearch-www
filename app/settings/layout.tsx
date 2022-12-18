@@ -16,7 +16,7 @@ export default function SettingsLayout({ children }: { children: ReactNode }) {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="flex items-center space-x-10 h-16">
+      <div className="flex items-center space-x-5 sm:space-x-10 h-16 px-2">
         <Link href="/">
           <LogoIcon className="shrink-0 grow-0" />
         </Link>
@@ -29,7 +29,7 @@ export default function SettingsLayout({ children }: { children: ReactNode }) {
           ))}
         </TabList>
       </div>
-      <div className="px-20 mt-5">{children}</div>
+      <div className="px-3 sm:px-20 mt-5">{children}</div>
     </div>
   );
 }
