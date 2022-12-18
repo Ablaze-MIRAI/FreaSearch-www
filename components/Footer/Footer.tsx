@@ -10,7 +10,7 @@ const Footer: FC<Props> = ({ className }) => {
   return (
     <footer
       className={classNames(
-        'flex space-x-8 w-full text-sm py-6 px-16 shadow-[0_-4px_3px_rgb(0_0_0_/_0.07)]',
+        'flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 w-full text-sm py-6 px-16 shadow-[0_-4px_3px_rgb(0_0_0_/_0.07)]',
         'dark:shadow-none dark:border-t-2 dark:border-neutral-800',
         className
       )}

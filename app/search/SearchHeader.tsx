@@ -31,14 +31,14 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
   return (
     <div
       className={classNames(
-        'relative flex flex-col px-28 pt-7 pb-1 bg-white dark:bg-neutral-900 shadow-md dark:shadow-none',
+        'relative flex flex-col px-2 md:px-28 pt-3 md:pt-7 pb-1 bg-white dark:bg-neutral-900 shadow-md dark:shadow-none',
         'dark:border-b-2 dark:border-neutral-800'
       )}
     >
       <Link href="/">
-        <LogoIcon className="absolute left-10 h-9 mt-2" />
+        <LogoIcon className="absolute left-5 md:left-10 h-9 mt-2" />
       </Link>
-      <div className="w-[500px]">
+      <div className="w-full md:w-[500px] pt-16 md:pt-0">
         <SearchInput
           defaultValue={searchParams.get('q') as string}
           defaultParams={searchParams}
@@ -76,7 +76,7 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
         </TabList>
       </div>
       <Link href="/settings" passHref legacyBehavior>
-        <IconButton as="a" className="absolute right-10">
+        <IconButton as="a" className="absolute mt-1 right-5 md:right-10">
           <IconSettings />
         </IconButton>
       </Link>

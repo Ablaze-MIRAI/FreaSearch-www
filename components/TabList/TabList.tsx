@@ -5,7 +5,11 @@ interface TabListProps {
 }
 
 const TabList: React.FC<TabListProps> = ({ children }) => {
-  return <div className="flex-grow flex items-center space-x-4">{children}</div>;
+  return (
+    <div className="flex-grow flex items-center md:space-x-4 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0">
+      {children}
+    </div>
+  );
 };
 
 export default TabList;
