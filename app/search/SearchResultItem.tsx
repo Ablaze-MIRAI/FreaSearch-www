@@ -52,8 +52,8 @@ const SearchResultItem: FC<Props> = ({
         <a
           href={url}
           className="text-blue-700 dark:text-blue-500 whitespace-nowrap overflow-hidden text-ellipsis"
-          target={(newTab && '_blank') as string}
-          rel={(newTab && 'noopener noreferrer') as string}
+          target={(newTab && '_blank') || undefined}
+          rel={(newTab && 'noopener noreferrer') || undefined}
         >
           {title}
         </a>
