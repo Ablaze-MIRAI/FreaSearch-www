@@ -1,12 +1,11 @@
-import type { NextPage } from 'next';
 import SettignsWidget from './SettingsWidget';
 
-const GeneralSettingsPage: NextPage = () => {
+function GeneralSettingsPage() {
   return (
     <div>
       <SettignsWidget />
     </div>
   );
-};
+}
 
 export default GeneralSettingsPage;
