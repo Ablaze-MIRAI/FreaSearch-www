@@ -1,10 +1,10 @@
 import type { NextPage } from 'next';
-import SettignsWidget from './SettingsWidget';
+import SettingsWidget from './SettingsWidget';
 
 const DesignSettingsPage: NextPage = () => {
   return (
     <div>
-      <SettignsWidget />
+      <SettingsWidget />
     </div>
   );
 };

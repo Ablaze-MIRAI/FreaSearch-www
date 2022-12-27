@@ -5,7 +5,7 @@ import SettingItem from 'components/SettingItem';
 import { useSettings } from 'hooks';
 import { FC } from 'react';
 
-const SettignsWidget: FC = () => {
+const SettingsWidget: FC = () => {
   const settings = useSettings();
   return (
     <SettingItem label="テーマ">
@@ -20,4 +20,4 @@ const SettignsWidget: FC = () => {
   );
 };
 
-export default SettignsWidget;
+export default SettingsWidget;
