@@ -3,7 +3,7 @@
 import { Select, SelectItem } from 'components/Select';
 import SettingItem from 'components/SettingItem';
 import { useSettings } from 'hooks';
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 
 const DesignSettingsPage: NextPage = () => {
   const settings = useSettings();

@@ -4,7 +4,7 @@ import { Select, SelectItem } from 'components/Select';
 import SettingItem from 'components/SettingItem';
 import Switch from 'components/Switch';
 import { useSettings } from 'hooks';
-import { NextPage } from 'next';
+import type { NextPage } from 'next';
 
 const GeneralSettingsPage: NextPage = () => {
   const settings = useSettings();
