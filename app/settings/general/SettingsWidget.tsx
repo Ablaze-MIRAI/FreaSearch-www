@@ -6,7 +6,7 @@ import Switch from 'components/Switch';
 import { useSettings } from 'hooks';
 import { FC } from 'react';
 
-const SettignsWidget: FC = () => {
+const SettingsWidget: FC = () => {
   const settings = useSettings();
   return (
     <>
@@ -36,4 +36,4 @@ const SettignsWidget: FC = () => {
   );
 };
 
-export default SettignsWidget;
+export default SettingsWidget;

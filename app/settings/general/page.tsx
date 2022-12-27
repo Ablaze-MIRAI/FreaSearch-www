@@ -1,9 +1,9 @@
-import SettignsWidget from './SettingsWidget';
+import SettingsWidget from './SettingsWidget';
 
 function GeneralSettingsPage() {
   return (
     <div>
-      <SettignsWidget />
+      <SettingsWidget />
     </div>
   );
 }
