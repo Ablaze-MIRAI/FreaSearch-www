@@ -5,7 +5,7 @@ import SettingItem from 'components/SettingItem';
 import { useSettings } from 'hooks';
 import { NextPage } from 'next';
 
-const GeneralSettingsPage: NextPage = () => {
+const DesignSettingsPage: NextPage = () => {
   const settings = useSettings();
 
   return (
@@ -23,4 +23,4 @@ const GeneralSettingsPage: NextPage = () => {
   );
 };
 
-export default GeneralSettingsPage;
+export default DesignSettingsPage;
