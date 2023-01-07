@@ -85,7 +85,12 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
             <div className="flex justify-between">
               <div>
                 {parseInt(prevPageParams.get('pageno') as string) > 0 && (
-                  <Link href={`/search?${prevPageParams.toString()}`} passHref legacyBehavior>
+                  <Link
+                    href={`/search?${prevPageParams.toString()}`}
+                    prefetch={false}
+                    passHref
+                    legacyBehavior
+                  >
                     <Button as="a" leftIcon={IconArrowLeft}>
                       前へ
                     </Button>
@@ -93,7 +98,12 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
                 )}
               </div>
               <div>
-                <Link href={`/search?${nextPageParams.toString()}`} passHref legacyBehavior>
+                <Link
+                  href={`/search?${nextPageParams.toString()}`}
+                  prefetch={false}
+                  passHref
+                  legacyBehavior
+                >
                   <Button as="a" rightIcon={IconArrowRight}>
                     次へ
                   </Button>

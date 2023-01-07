@@ -35,7 +35,7 @@ const SearchHeader: FC<Props> = ({ searchParams }) => {
         'dark:border-b-2 dark:border-neutral-800'
       )}
     >
-      <Link href="/">
+      <Link href="/" prefetch={false}>
         <LogoIcon className="absolute left-5 md:left-10 h-9 mt-2" />
       </Link>
       <div className="w-full md:w-[500px] pt-16 md:pt-0">

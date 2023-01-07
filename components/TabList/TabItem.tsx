@@ -13,6 +13,7 @@ const TabItem: React.FC<TabItemProps> = ({ href, isSelected, className, children
   return (
     <Link
       href={href}
+      prefetch={false}
       className={classNames(
         'py-2 px-3',
         {
