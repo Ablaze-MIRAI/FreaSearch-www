@@ -10,8 +10,7 @@ interface SnipetProps {
 }
 
 const Snipet: FC<SnipetProps> = ({ keyword, content, type, url, key }) => {
-  const isWarning = true;
-  console.log(type);
+  const isWarning = type === 'warning';
   const title = isWarning ? (
     <div className="flex">
       <IconAlertTriangle className="mr-1 text-yellow-500" />
