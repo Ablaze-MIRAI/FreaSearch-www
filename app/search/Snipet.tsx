@@ -1,7 +1,7 @@
 import { IconAlertTriangle, IconExternalLink } from '@tabler/icons';
 import { FC } from 'react';
 
-interface SnipetProps {
+interface snippetProps {
   keyword: string;
   content: string;
   type: 'answer' | 'warning';
@@ -9,7 +9,7 @@ interface SnipetProps {
   key?: any;
 }
 
-const Snipet: FC<SnipetProps> = ({ keyword, content, type, url, key }) => {
+const snippet: FC<snippetProps> = ({ keyword, content, type, url, key }) => {
   const isWarning = type === 'warning';
   const title = isWarning ? (
     <div className="flex">
@@ -37,4 +37,4 @@ const Snipet: FC<SnipetProps> = ({ keyword, content, type, url, key }) => {
   );
 };
 
-export default Snipet;
+export default snippet;

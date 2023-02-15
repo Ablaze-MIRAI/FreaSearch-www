@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import SearchResultItem from './SearchResultItem';
 import SearchResultImageItem from './SearchResultImageItem';
-import Snipet from './Snipet';
+import snippet from './snippet';
 import classNames from 'classnames';
 import Button from 'components/Button';
 import Link from 'next/link';
@@ -60,7 +60,7 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
               index: number
             ) => {
               return (
-                <Snipet
+                <snippet
                   type={answer.type}
                   keyword={apiParams.get('q') as string}
                   content={answer.answer}
