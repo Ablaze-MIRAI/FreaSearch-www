@@ -8,6 +8,7 @@ export default function Head() {
       />
       <meta name="viewport" content="width=device-width" />
       <link rel="icon" href="/favicon.ico" />
+      <link rel="search" type="application/opensearchdescription+xml" title="Frea Search" href="/opensearch.xml" />
     </>
   );
 }
