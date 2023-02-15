@@ -1,4 +1,4 @@
-import { IconExternalLink } from '@tabler/icons';
+import { IconAlertTriangle, IconExternalLink } from '@tabler/icons';
 import { FC } from 'react';
 
 interface SnipetProps {
@@ -11,7 +11,14 @@ interface SnipetProps {
 
 const Snipet: FC<SnipetProps> = ({ keyword, content, type, url, key }) => {
   const isWarning = type === 'warning';
-  const title = isWarning ? '警告' : keyword;
+  const title = isWarning ? (
+    '警告'
+  ) : (
+    <>
+      <IconAlertTriangle className="mr-1" />
+      {keyword}
+    </>
+  );
 
   return (
     <div
