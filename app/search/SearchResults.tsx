@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import SearchResultItem from './SearchResultItem';
 import SearchResultImageItem from './SearchResultImageItem';
+import Snipet from './Snipet';
 import classNames from 'classnames';
 import Button from 'components/Button';
 import Link from 'next/link';
@@ -53,11 +54,21 @@ const SearchResults: FC<Props> = async ({ searchParams }) => {
               : 'w-full md:w-[700px] flex-col space-y-3 py-5'
           )}
         >
-          {data.answers.length > 0 && (
-            <div className="border dark:border-2 dark:border-neutral-800 p-5 flex flex-col rounded space-y-2 text-sm">
-              <div className="font-bold">{apiParams.get('q')}</div>
-              <div>{data.answers[0].answer}</div>
-            </div>
+          {data.answers.map(
+            (
+              answer: { type: 'answer' | 'warning'; answer: string; url?: string },
+              index: number
+            ) => {
+              return (
+                <Snipet
+                  type={answer.type}
+                  keyword={apiParams.get('q') as string}
+                  content={answer.answer}
+                  url={answer.url}
+                  key={index}
+                />
+              );
+            }
           )}
           {data.results.map(
             (
