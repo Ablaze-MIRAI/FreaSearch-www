@@ -27,7 +27,7 @@ const Snipet: FC<SnipetProps> = ({ keyword, content, type, url, key }) => {
     >
       <div className="font-bold">{title}</div>
       <div>{content}</div>
-      {url ?? (
+      {url && (
         <a href={url} className="flex justify-end text-sky-700">
           詳細情報
           <IconExternalLink size={16} className="ml-1" />
