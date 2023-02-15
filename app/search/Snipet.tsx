@@ -10,14 +10,15 @@ interface SnipetProps {
 }
 
 const Snipet: FC<SnipetProps> = ({ keyword, content, type, url, key }) => {
-  const isWarning = type === 'warning';
+  const isWarning = true;
+  console.log(type);
   const title = isWarning ? (
-    '警告'
+    <div className="flex">
+      <IconAlertTriangle className="mr-1 text-yellow-500" />
+      警告
+    </div>
   ) : (
-    <>
-      <IconAlertTriangle className="mr-1" />
-      {keyword}
-    </>
+    keyword
   );
 
   return (
@@ -28,9 +29,9 @@ const Snipet: FC<SnipetProps> = ({ keyword, content, type, url, key }) => {
       <div className="font-bold">{title}</div>
       <div>{content}</div>
       {isWarning && (
-        <a href={url}>
+        <a href={url} className="flex justify-end text-sky-700">
           詳細情報
-          <IconExternalLink className="ml-1" />
+          <IconExternalLink size={16} className="ml-1" />
         </a>
       )}
     </div>
