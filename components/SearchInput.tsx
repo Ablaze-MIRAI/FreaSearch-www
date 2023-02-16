@@ -16,7 +16,7 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
   const router = useRouter();
   const keywordInputRef = useRef<HTMLInputElement>(null!);
   const { shortcut } = useSettings();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const focusRef = useRef(false);
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
   const pathname = usePathname();
   const searchParams = useSearchParams();
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(false);
   }, [pathname, searchParams]);
 
   return (
