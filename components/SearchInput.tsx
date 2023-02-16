@@ -15,8 +15,10 @@ export interface SearchInputParams extends InputProps {
 const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props }) => {
   const router = useRouter();
   const keywordInputRef = useRef<HTMLInputElement>(null!);
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const { shortcut } = useSettings();
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(pathname?.toLowerCase() === '/search');
   const focusRef = useRef(false);
 
   useEffect(() => {
@@ -44,11 +46,10 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
     }
   };
 
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
   useEffect(() => {
     setIsLoading(false);
   }, [pathname, searchParams]);
+  console.log(isLoading);
 
   return (
     <form
