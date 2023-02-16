@@ -56,8 +56,7 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
         leftItem={<IconSearch className="ml-5" />}
         rightItem={
           <IconButton className="!h-full w-16 rounded-none rounded-r-full" onClick={handleSearch}>
-            {/* {isLoading ? <IconLoader2 className="animate-spin" /> : <IconArrowRight />} */}
-            <IconArrowRight />
+            {isLoading ? <IconLoader2 className="animate-spin" /> : <IconArrowRight />}
           </IconButton>
         }
         onFocus={() => setFocus(true)}
