@@ -4,7 +4,7 @@ import { FC, useEffect, useRef, useState } from 'react';
 import Input, { InputProps } from './Input';
 import IconButton from './IconButton';
 import { IconArrowRight, IconLoader2, IconSearch } from '@tabler/icons';
-import { useRouter } from 'next/navigation';
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import classNames from 'classnames';
 import { useSettings } from 'hooks';
 
@@ -43,6 +43,12 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
       router.replace(`/search?${newParams?.toString()}`);
     }
   };
+
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  useEffect(() => {
+    setIsLoading(true);
+  }, [pathname, searchParams]);
 
   return (
     <form
