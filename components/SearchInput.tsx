@@ -17,12 +17,12 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
   const keywordInputRef = useRef<HTMLInputElement>(null!);
   const { shortcut } = useSettings();
   const [isLoading, setIsLoading] = useState(false);
-  const [focus, setFocus] = useState(false);
+  const focusRef = useRef(false);
 
   useEffect(() => {
     if (shortcut) {
       const handleKeyDown = (e: KeyboardEvent) => {
-        if (e.key === '/' && !focus) {
+        if (e.key === '/' && !focusRef.current) {
           e.preventDefault();
           keywordInputRef.current.focus();
         }
@@ -32,7 +32,7 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
         window.removeEventListener('keydown', handleKeyDown);
       };
     }
-  }, [shortcut, focus]);
+  }, [shortcut]);
 
   const handleSearch = () => {
     const keyword = keywordInputRef.current.value;
@@ -65,8 +65,8 @@ const SearchInput: FC<SearchInputParams> = ({ className, defaultParams, ...props
             {isLoading ? <IconLoader2 className="animate-spin" /> : <IconArrowRight />}
           </IconButton>
         }
-        onFocus={() => setFocus(true)}
-        onBlur={() => setFocus(false)}
+        onFocus={() => (focusRef.current = true)}
+        onBlur={() => (focusRef.current = false)}
         className={classNames('outline-none transition', className)}
         ref={keywordInputRef}
         {...props}
