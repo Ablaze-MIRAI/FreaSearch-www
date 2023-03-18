@@ -11,8 +11,9 @@ function DesignSettingsPage() {
       <SettingItem label="テーマ">
         <Select
           value={settings.theme}
-          onValueChange={(theme: 'dark' | 'light') => settings.setTheme(theme)}
+          onValueChange={(theme: 'system' | 'dark' | 'light') => settings.setTheme(theme)}
         >
+          <SelectItem value="system">システムに合わせる</SelectItem>
           <SelectItem value="light">ライトテーマ</SelectItem>
           <SelectItem value="dark">ダークテーマ</SelectItem>
         </Select>

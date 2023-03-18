@@ -13,7 +13,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html className={classNames(inter.variable, notoSansJP.variable)}>
       <body className="dark:bg-neutral-900">
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="system">
           <SettingsProvider>{children}</SettingsProvider>
         </ThemeProvider>
       </body>
