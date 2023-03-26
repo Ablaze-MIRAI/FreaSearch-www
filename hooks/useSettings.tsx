@@ -57,7 +57,7 @@ class Settings implements ISettings {
     this.saveSettings('shortcut', shortcut);
   }
 
-  setTheme(theme: 'light' | 'dark') {
+  setTheme(theme: 'system' | 'light' | 'dark') {
     this.saveSettings('theme', theme);
     this.onThemeChange(theme);
   }
@@ -72,7 +72,7 @@ export const SettingsProvider: FC<Props> = ({ children }) => {
   const settingData = cookies.settings || {};
   const { setTheme } = useTheme();
 
-  const settings = new Settings(settingData, setCookie, (theme: 'light' | 'dark') => {
+  const settings = new Settings(settingData, setCookie, (theme: 'system' | 'light' | 'dark') => {
     setTheme(theme);
   });
 
